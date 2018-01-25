@@ -15,7 +15,10 @@
     "bitcoin-exchange",
     "bitcoin-exchange-seed"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "socket.io": "^2.0.4",
+    "uuid": "^3.2.1"
+  },
   "devDependencies": {
     "jasmine": "2.4.1"
   },
