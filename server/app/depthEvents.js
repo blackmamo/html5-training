@@ -4,7 +4,6 @@ module.exports = {
         function DepthSnapshot(bids, offers) {
             this.bids = bids
             this.offers = offers
-
         },
 
     // When the order book changes the client will receive this
@@ -21,6 +20,5 @@ module.exports = {
         function DepthRemoved(side, price) {
             this.side = side
             this.price = price
-
         }
 };

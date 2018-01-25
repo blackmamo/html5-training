@@ -26,10 +26,12 @@ module.exports = {
     // For now I will only send fills to the counter parties involved,
     // I can add an anonymised global trade stream when I enhance the UI
     Fill:
-        function Fill(orderId, giver, taker, price, qty) {
-            this.orderId = orderId
+        function Fill(tradeId, giver, giverOrderId, taker, takerOrderId, price, qty) {
+            this.tradeId = tradeId
             this.giver = giver
+            this.giverOrderId = giverOrderId
             this.taker = taker
+            this.takerOrderId = takerOrderId
             this.price = price
             this.qty = qty
 
