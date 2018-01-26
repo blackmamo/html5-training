@@ -13,9 +13,10 @@ var DepthSnapshot = DepthEvents.DepthSnapshot, DepthChanged = DepthEvents.DepthC
 // order book that I won't. If I was adding more complex order types, I may well separate them
 // The idGeneration is a policy thing we don't want to bake into the matcher implementation,
 // hence it is injected
-function Matcher(updateHandler, idGenerator) {
+function Matcher(updateHandler, idGenerator, removeDeadOrders) {
     this.idGenerator = idGenerator
     this.updateHandler = updateHandler
+    this.removeDeadOrders = removeDeadOrders
     // Would ideally like to use a sorted map, could use the ones in collections.js
     // but keeping it simple for now
     this.bids = []
@@ -40,6 +41,7 @@ function Matcher(updateHandler, idGenerator) {
         return sideStrategies[order.side.side]}
 }
 
+// private - used by submit
 Matcher.prototype.sendStatusUpdate = function (status){
     // need to copy since we mutate these things internally
     // flat object so no need for deep copy - currently
@@ -60,6 +62,7 @@ Matcher.prototype.ackOrder = function(order) {
     return status
 }
 
+// private - used by submit
 Matcher.prototype.sendFill = function(submittedOrder, otherOrder, qty){
     var giver, giverOrderId, taker, takerOrderId
     if (submittedOrder.side === Sides.Bid) {
@@ -78,6 +81,14 @@ Matcher.prototype.sendFill = function(submittedOrder, otherOrder, qty){
         // always fill at the price that was in the book before our order was submitted
         otherOrder.price, qty))
 
+}
+
+// private - used by submit
+Matcher.prototype.orderFinished = function(order){
+    order.live = false
+    if (this.removeDeadOrders) {
+        delete this.orders[order.trader][order.orderId]
+    }
 }
 
 // private - used by submit
@@ -101,7 +112,7 @@ Matcher.prototype.match = function(order, side) {
 
             // consume order and possibly the level
             if (otherOrder.remainingQty === 0){
-                otherOrder.live = false
+                this.orderFinished(otherOrder)
                 level.orders.splice(0,1)
 
                 if (level.qty === 0){
@@ -120,7 +131,7 @@ Matcher.prototype.match = function(order, side) {
 
             // if filled leave the loop and mark the order finished
             if (order.remainingQty === 0) {
-                order.live = false
+                this.orderFinished(order)
 
                 // If we partially consumed a level, we need to update the depth
                 if (!exactMatch) {
@@ -178,6 +189,7 @@ Matcher.prototype.addToBook = function(order, side) {
     }
 }
 
+// private - used by submit
 Matcher.prototype.storeOrder = function(order) {
     var traderOrders = this.orders[order.trader]
     if (!traderOrders) {

@@ -17,9 +17,12 @@ function updateHandler(event){
     socketController.sendUpdate(event)
 }
 
-matcher = new Matcher(updateHandler, {
-    getTradeId: function() {return uuid()},
-    getOrderId: function(trader) {return uuid()}
-})
+matcher = new Matcher(
+    updateHandler,
+    {
+        getTradeId: function() {return uuid()},
+        getOrderId: function(trader) {return uuid()}
+    },
+    process.argv[0] == 'true')
 
 socketController = new SocketController(server, matcher)

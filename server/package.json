@@ -2,13 +2,13 @@
   "name": "bitcoin-exchange-server",
   "version": "0.0.1",
   "description": "Server-side code for bitcoin exchange",
-  "author": "Dean Kerr <dean_k@live.co.uk>",
+  "author": "Matthew Amos",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oriondean/bitcoin-exchange-seed"
+    "url": "https://github.com/blackmamo/html5-training"
   },
   "bugs": {
-    "url": "https://github.com/oriondean/bitcoin-exchange-seed/issues"
+    "url": "https://github.com/blackmamo/html5-training/issues"
   },
   "keywords": [
     "bitcoin",
@@ -20,7 +20,16 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "jasmine": "2.4.1"
+    "benchmark": "^2.1.4",
+    "gulp": "^3.9.1",
+    "gulp-benchmark": "^1.1.1",
+    "gulp-jasmine": "^3.0.0",
+    "gulp-karma": "^0.0.5",
+    "jasmine": "2.4.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4"
   },
   "scripts": {
     "test": "jasmine"

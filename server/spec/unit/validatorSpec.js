@@ -1,6 +1,6 @@
-var OrderRequestValidator = require("../app/validator");
-var Sides = require("../app/side");
-var OrderEvents = require("../app/orderEvents");
+var OrderRequestValidator = require("../../app/validator");
+var Sides = require("../../app/side");
+var OrderEvents = require("../../app/orderEvents");
 var OrderRequest = OrderEvents.OrderRequest
 
 describe("new OrderRequestValidator", function() {

@@ -1,9 +1,9 @@
-var Matcher = require("../app/matcher");
-var Sides = require("../app/side");
-var OrderEvents = require("../app/orderEvents");
+var Matcher = require("../../app/matcher");
+var Sides = require("../../app/side");
+var OrderEvents = require("../../app/orderEvents");
 var OrderRequest = OrderEvents.OrderRequest, OrderStatus = OrderEvents.OrderStatus,
     Fill = OrderEvents.Fill
-var DepthEvents = require("../app/depthEvents");
+var DepthEvents = require("../../app/depthEvents");
 var DepthChanged = DepthEvents.DepthChanged, DepthRemoved = DepthEvents.DepthRemoved,
     DepthSnapshot = DepthEvents.DepthSnapshot
 var partially = jasmine.objectContaining
@@ -36,7 +36,7 @@ describe("Matcher", function() {
         idGenerator['nextTradeId'] = 0
         idGenerator['nextOrderId'] = 0
 
-        matcher = new Matcher(updateHandler, idGenerator);
+        matcher = new Matcher(updateHandler, idGenerator, false);
     });
 
     // Now I get to the point of packaging up a group of tests, I wonder if tests per
