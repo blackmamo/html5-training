@@ -1,3 +1,4 @@
+console.log(process.cwd())
 const uuid = require('uuid/v1');
 var Matcher = require("../app/matcher");
 var SocketController = require("../app/controller");
