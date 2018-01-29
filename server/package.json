@@ -30,10 +30,13 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
-    "through2": "^2.0.3"
+    "through2": "^2.0.3",
+    "socket.io-client": "^1.4.4"
   },
   "scripts": {
     "test": "jasmine",
+    "startDebug": "node --inspect-brk=0.0.0.0:9000 app/server.js true",
+    "startTest": "node app/server.js true",
     "start": "node app/server.js"
   },
   "private": true,

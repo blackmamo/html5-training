@@ -11,6 +11,9 @@ var DockerFile = "DockerFile", PackageFile = "package.json", AppCode = "app/**/*
 var TestImg = "test_matcher", ServerImg = "matcher",
     TestContainer = "testMatchServer", ServerContainer ="matchServer"
 
+// If the gulp task is being debugged then we will do things differently
+var debuggingGulp = process.execArgv &&
+    (process.execArgv.findIndex(function (arg){return arg.includes("inspect-brk")}) != -1)
 var dockerServerBoundPort
 
 function runCmd(cmd, captureOutput) {
@@ -34,12 +37,13 @@ function createImage(inputs, imgName){
         }))
 }
 
-function runImage(imgName, runOptions, containerName) {
+function runImage(imgName, runOptions, containerName, command) {
     try {
         runCmd('docker rm -f ' + containerName)
     } catch(err) {}
     containerName =  containerName ? ' --name ' + containerName : ''
-    runCmd('docker run -d --rm ' + runOptions + containerName + ' ' + imgName)
+    command =  command ? command : ''
+    runCmd('docker run -d --rm ' + runOptions + containerName + ' ' + imgName + ' ' + command)
 }
 
 gulp.task('testImage', function(done){
@@ -60,12 +64,20 @@ gulp.task('runServer', ['serverImage'], function(){
 })
 
 gulp.task('runTestServer', ['testImage'], function(){
-    // dynamic port binding when testing, and use local file volume
-    runImage(TestImg, '-p 80 -v app:/usr/src/app/app:ro', TestContainer)
+    // dynamic port binding when testing, this is overridden with a fixed port if we are debugging
+    // and we use a local file volume so developers don't need to build a new docker image when they
+    // change files
+    if (debuggingGulp) {
+        dockerServerBoundPort =  8888
+        runImage(TestImg,
+            '--expose=9000 -p 9999:9000 -p '+dockerServerBoundPort+':8080 -v '+process.cwd()+'/app:/usr/src/app/app:ro',
+            TestContainer, 'startDebug')
+    } else {
+        runImage(TestImg, '-p 8080 -v '+process.cwd()+'/app:/usr/src/app/app:ro', TestContainer, 'startTest')
+        var portOutput = runCmd('docker port '+TestContainer+' 8080', true)
+        dockerServerBoundPort =  /\d(\.\d){3}:(\d+)/.exec(portOutput)[2]
+    }
 
-    // {} means runCmd captures the stdout instead of passing it to console
-    var portOutput = runCmd('docker port '+TestContainer+' 80', true)
-    dockerServerBoundPort =  /\d(\.\d){3}:(\d+)/.exec(portOutput)[2]
     console.log('Server was mapped to host port: ' + dockerServerBoundPort)
 })
 
@@ -74,11 +86,38 @@ gulp.task('unitTests', function() {
 })
 
 gulp.task('integrationTests', ['runTestServer'], function(done) {
+    // This all exists to make it easier for devs. If the gulp task is run in debug mode, we assume
+    // it was launched e.g. from the ide in a debug mode. We will want to debug the actual test too
+    // so we pass the debug flags into the browser that karma launches. Using a fixed port to make the
+    // dev's life easy. No contention for ports here unlike in C.I. context
+    // var debugging = process.execArgv && (process.execArgv.findIndex(function (arg){
+    //     return arg.includes("inspect-brk")}) != -1)
+    // var browserDebugPort = 9000
+    //Chrome attempts
+    // var debuggingFlags = debugging ? ['--remote-debugging-port='+browserDebugPort, '--wait-for-debugger-children','--renderer-process-limit=1'] : []
+    //phantom attempts
+    //var debuggingFlags = debugging ? ['--remote-debugger-port='+browserDebugPort,'--remote-debugger-autorun=no'] : []
+    // if (debugging) {
+    //     console.log("Starting karma with the browser in debug mode on port " + browserDebugPort)
+    // }
+
     gulp.src('spec/integration/*.js').pipe(through.obj(
         function (file, enc, done) {
-            console.log(process.cwd())
             new KarmaServer({
-                configFile: file.base+'karma.conf.js'
+                configFile: file.base+'karma.conf.js',
+                // This is how we pass the server address to the client
+                client: {
+                    jasmine: {
+                        serverPort: dockerServerBoundPort
+                    },
+                }//,
+                // customLaunchers: {
+                //     PhantomJS_customised: {
+                //         base: 'Chrome',
+                //         flags: debuggingFlags
+                //     }
+                // },
+                // captureTimeout: debugging ? 60000 : 1000
             }, done).start();
         }))
 })

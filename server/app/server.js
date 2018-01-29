@@ -10,7 +10,7 @@ function handler (req, res) {
 }
 
 var server = require('http').createServer(handler)
-server.listen(80)
+server.listen(8080)
 
 var matcher, socketController
 
@@ -24,6 +24,6 @@ matcher = new Matcher(
         getTradeId: function() {return uuid()},
         getOrderId: function(trader) {return uuid()}
     },
-    process.argv[0] == 'true')
+    process.argv.findIndex(function(arg){arg === '--remove-dead-orders'}) === -1)
 
 socketController = new SocketController(server, matcher)

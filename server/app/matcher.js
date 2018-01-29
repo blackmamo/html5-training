@@ -49,6 +49,7 @@ Matcher.prototype.sendStatusUpdate = function (status){
         status.orderId, status.trader, status.side,
         status.price, status.reqQty, status.remainingQty, status.live, status.status
     )
+    this.storeOrder(status)
     this.updateHandler(copy)
 }
 
@@ -191,7 +192,7 @@ Matcher.prototype.addToBook = function(order, side) {
 
 // private - used by submit
 Matcher.prototype.storeOrder = function(order) {
-    var traderOrders = this.orders[order.trader]
+    var traderOrders = this.orders[order.traderId]
     if (!traderOrders) {
         this.orders[order.trader] = traderOrders = []
     }
@@ -201,7 +202,6 @@ Matcher.prototype.storeOrder = function(order) {
 // assumes that is is only ever passed valid orders, see the OrderRequestValidator
 Matcher.prototype.submit = function(order) {
     var ackedOrder = this.ackOrder(order)
-    this.storeOrder(order)
     var side = this.side(order)
     var matchedOrder = this.match(ackedOrder, side)
     if (matchedOrder.remainingQty > 0) {
@@ -219,7 +219,8 @@ Matcher.prototype.depthSnapshot = function() {
 
 Matcher.prototype.orderStatusSnapshot = function(trader) {
     var traderOrders = this.orders[trader]
-    return new OrderStatusSnapshot(traderOrders ? traderOrders.values() : [])
+    return new OrderStatusSnapshot(
+        traderOrders ? Object.keys(traderOrders).map(function(k){return traderOrders[k]}) : [])
 }
 
 module.exports = Matcher
