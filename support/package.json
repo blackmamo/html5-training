@@ -1,0 +1,32 @@
+{
+  "name": "mamos-support",
+  "version": "0.0.1",
+  "description": "Support facilities e.g. creating docker containers for databse and logging services",
+  "author": "Matthew Amos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackmamo/html5-training"
+  },
+  "bugs": {
+    "url": "https://github.com/blackmamo/html5-training/issues"
+  },
+  "keywords": [],
+  "files": [
+    "/js/**.js"
+  ],
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
+    "karma": "^2.0.0",
+    "jasmine": "^2.9.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "gulp startAll"
+  },
+  "private": true,
+  "license": "MIT"
+}

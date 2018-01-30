@@ -15,14 +15,20 @@
     "bitcoin-exchange",
     "bitcoin-exchange-seed"
   ],
+  "//": [
+    "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+    "volume mount for the source code"
+  ],
   "dependencies": {
+    "morgan": "^1.9.0",
     "socket.io": "^2.0.4",
-    "uuid": "^3.2.1"
+    "socket.io-logger": "^0.0.2",
+    "uuid": "^3.2.1",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
     "gulp": "^3.9.1",
-    "gulp-changed": "^3.2.0",
     "gulp-benchmark": "^1.1.1",
     "gulp-jasmine": "^3.0.0",
     "jasmine": "2.4.1",
@@ -30,14 +36,13 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
-    "through2": "^2.0.3",
-    "socket.io-client": "^1.4.4"
+    "mamos-support": "file:../support",
+    "socket.io-client": "^1.4.4",
+    "through2": "^2.0.3"
   },
   "scripts": {
     "test": "jasmine",
-    "startDebug": "node --inspect-brk=0.0.0.0:9000 app/server.js true",
-    "startTest": "node app/server.js true",
-    "start": "node app/server.js"
+    "start": "nodemon app/server.js"
   },
   "private": true,
   "license": "MIT"
