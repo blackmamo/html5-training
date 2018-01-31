@@ -5,7 +5,7 @@ var getArg = require('mamos-support/js/getArg')
 var debugServerArg = getArg('mamos-debug-server', 9000)
 
 // When using a volume mount we don't need to recreate the image as often
-var useVolumeMount = getArg('use-volume-mount', debugServerArg ? true : false)
+var useVolumeMount = getArg('use-volume-mount', true) || Boolean(debugServerArg)
 
 function createServerImage(imageName, done) {
     // deps change based on whether we volume map the js source

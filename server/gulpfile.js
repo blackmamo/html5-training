@@ -35,15 +35,18 @@ gulp.task('unitTests', function() {
 // When debugging the server, it stays alive and we have hot code swap, so we don't want to
 // restart it each time we run the tests
 gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer']), function(done) {
-    gulp.src('spec/integration/*.js')
-        .pipe(karma({
-            // This is how we pass the server address to the client
-            client: {
-                jasmine: {
-                    serverPort: util.boundServerPort
-                },
-            }
-        }))
+    karma({
+        // This is how we pass the server address to the client
+        client: {
+            jasmine: {
+                serverPort: util.boundServerPort
+            },
+        }
+    }, done)
+})
+
+gulp.task('me',['integrationTests'], function(){
+    console.log("BANANAN")
 })
 
 // When debugging the server, it stays alive and we have hot code swap, so we don't want to
@@ -58,7 +61,10 @@ gulp.task('perfTests', util.nonServerDebugDependencies(['runTestServer']), funct
                     serverPort: util.boundServerPort
                 },
             }
-        }))
+        })).pipe(through.obj(function (f,e,done) {
+            console.log("foo")
+            done()
+    }))
 })
 
 gulp.task('all', ['unitTests', 'integrationTests', 'perfTests'])

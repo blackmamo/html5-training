@@ -1,7 +1,7 @@
 describe("example", function() {
     // There has to be a nicer way than this? TODO require karma, look at args and this
     var serverPort =  __karma__.config.jasmine.serverPort
-    console.log("SAheep "+__karma__.config.jasmine.serverPort)
+    console.log("Connecting to server on port: "+__karma__.config.jasmine.serverPort)
     var socketA = io('http://localhost:'+serverPort, {reconnect:true});
     var socketB = io('http://localhost:'+serverPort, {reconnect:true});
 
