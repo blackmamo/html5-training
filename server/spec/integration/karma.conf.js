@@ -21,7 +21,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            require.resolve("socket.io-client")+"../../../dist/socket.io.min.js",
+            require.resolve("socket.io-client/dist/socket.io.min.js"),
             "correctness.js"
         ],
 

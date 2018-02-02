@@ -1,8 +1,7 @@
 var gulp = require('gulp');
-var benchmark = require('gulp-benchmark');
 var jasmine = require('gulp-jasmine');
-var karma = require('mamos-support/js/karmaGulpUtils');
-var dockerUtils = require('mamos-support/js/dockerGulpUtils');
+var karma = require('bitcoin-support/js/karmaGulpUtils');
+var perfTests = require('./test/benchmarks/benchmarkSuite');
 
 // This dependency does the magic things needed when using the debug server option
 var util = require('./spec/support/serverGulpUtils')
@@ -31,8 +30,6 @@ gulp.task('unitTests', function() {
     gulp.src('spec/unit/*.js').pipe(jasmine())
 })
 
-// When debugging the server, it stays alive and we have hot code swap, so we don't want to
-// restart it each time we run the tests
 gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer']), function(done) {
     karma({
         // This is how we pass the server address to the client
@@ -44,24 +41,8 @@ gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer'])
     }, done)
 })
 
-gulp.task('me',['integrationTests'], function(){
-    console.log("BANANAN")
-})
-
-// When debugging the server, it stays alive and we have hot code swap, so we don't want to
-// restart it each time we run the tests
 gulp.task('perfTests', util.nonServerDebugDependencies(['runTestServer']), function(done) {
-    gulp.src('spec/integration/*.js')
-        .pipe(karma({
-            configFile: file.base+'karma.conf.js',
-            // This is how we pass the server address to the client
-            client: {
-                jasmine: {
-                    serverPort: util.boundServerPort,
-                    timeout: 100000
-                },
-            }
-        })).pipe(through.obj())
+    perfTests(util.boundServerPort())
 })
 
 gulp.task('all', ['unitTests', 'integrationTests', 'perfTests'])

@@ -40,7 +40,9 @@ function SocketController(server, matcher) {
         })
 
         // useful in finding the end of tests and for the client to check that the server is alive
-        socket.on('sing', function(data){ socket.emit('song',data)})
+        socket.on('sing', function(data){
+            socket.emit('song',data)
+        })
 
         socket.on('disconnect', function () {
             socket.leave('publicData')

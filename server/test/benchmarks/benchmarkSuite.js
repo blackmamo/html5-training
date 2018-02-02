@@ -1,13 +1,14 @@
 var Benchmark = require('benchmark');
-var Matcher = require('./matcherBenchmark')
+var suite = new Benchmark.Suite('OrderBook');
+var matcherBench = require('./matcherBenchmark')
 
-var suite = new Benchmark.Suite;
-
-// add tests
-suite.add(Matcher.SimpleTest)
-// add listeners
-.on('cycle', function(event) {
-    console.log(String(event.target));
-})
-// run async
-.run({ 'async': false});
+module.exports = function(boundServerPort){
+    // add tests
+    suite.add(matcherBench(boundServerPort))
+    // add listeners
+    .on('cycle', function(event) {
+        console.log(String(event.target));
+    })
+    // run async
+    .run({ 'async': false});
+}

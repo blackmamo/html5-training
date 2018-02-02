@@ -19,7 +19,7 @@ function createImage(inputs, imgName, totallyDone){
     return gulp.src(inputs)
         .pipe(changed('dist',{transformPath: function(p){return imgCreatedFile}}))
         .pipe(through.obj(function (file, enc, done){
-            runCmd('docker build -t '+imgName+' ' + file.base)
+            runCmd('docker build -t '+imgName+' .')
             fs.writeFileSync(imgCreatedFile,'Last test image created '+Date.now())
             done()
         })).pipe(through.obj(function (file, enc, done){

@@ -1,5 +1,5 @@
-var dockerUtils = require('mamos-support/js/dockerGulpUtils');
-var getArg = require('mamos-support/js/getArg')
+var dockerUtils = require('bitcoin-support/js/dockerGulpUtils');
+var getArg = require('bitcoin-support/js/getArg')
 
 // If this var is set, the server will be started up such that the
 var debugServerArg = getArg('mamos-debug-server', 9000)
