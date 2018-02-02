@@ -1,6 +1,8 @@
 // Karma configuration
 // Generated on Fri Jan 26 2018 11:29:59 GMT+0000 (GMT Standard Time)
 
+var resolve = require('resolve')
+
 module.exports = function(config) {
     config.set({
         client:{
@@ -19,7 +21,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            "../../node_modules/socket.io-client/dist/socket.io.min.js",
+            require.resolve("socket.io-client")+"../../../dist/socket.io.min.js",
             "correctness.js"
         ],
 

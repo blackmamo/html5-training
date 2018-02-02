@@ -20,12 +20,11 @@ module.exports = function(baseConfig, done) {
                     ]
                 }
             },
-            browserNoActivityTimeout: 100000,
+            browserNoActivityTimeout: 1000000,
             logLevel: "DEBUG"
         })
+        baseConfig.client.jasmine['timeout'] = 1000000
     }
     Object.assign(baseConfig, {configFile: process.cwd()+'/spec/integration/karma.conf.js'})
-    new KarmaServer(baseConfig, function (){
-        done()
-    }).start();
+    new KarmaServer(baseConfig, done).start();
 }

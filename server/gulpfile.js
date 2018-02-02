@@ -57,13 +57,11 @@ gulp.task('perfTests', util.nonServerDebugDependencies(['runTestServer']), funct
             // This is how we pass the server address to the client
             client: {
                 jasmine: {
-                    serverPort: util.boundServerPort
+                    serverPort: util.boundServerPort,
+                    timeout: 100000
                 },
             }
-        })).pipe(through.obj(function (f,e,done) {
-            console.log("foo")
-            done()
-    }))
+        })).pipe(through.obj())
 })
 
 gulp.task('all', ['unitTests', 'integrationTests', 'perfTests'])
