@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var benchmark = require('gulp-benchmark');
 var jasmine = require('gulp-jasmine');
 var karma = require('mamos-support/js/karmaGulpUtils');
-require('karma-jasmine');
 var dockerUtils = require('mamos-support/js/dockerGulpUtils');
 
 // This dependency does the magic things needed when using the debug server option
@@ -39,7 +38,7 @@ gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer'])
         // This is how we pass the server address to the client
         client: {
             jasmine: {
-                serverPort: util.boundServerPort
+                serverPort: util.boundServerPort()
             },
         }
     }, done)

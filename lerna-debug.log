@@ -1,0 +1,1261 @@
+0 silly input []
+1 silly flags { _: [ 'bootstrap' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   hoist: '**',
+1 silly flags   args: [] }
+2 verbose rootPath C:\Users\mamos\WebstormProjects\html5-training
+3 info version 2.8.0
+4 silly existsSync C:\Users\mamos\WebstormProjects\html5-training\VERSION
+5 silly initialize attempt
+6 silly npmConfig { registry: undefined,
+6 silly npmConfig   npmClient: undefined,
+6 silly npmConfig   npmClientArgs: undefined,
+6 silly npmConfig   mutex: undefined }
+7 silly initialize success
+8 silly execute attempt
+9 info Bootstrapping 3 packages
+10 info lifecycle preinstall
+11 silly runScript preinstall bitcoin-exchange-client
+12 silly bitcoin-exchange-client
+13 silly runScript preinstall bitcoin-exchange-server
+14 silly bitcoin-exchange-server
+15 silly runScript preinstall mamos-support
+16 silly mamos-support
+17 verbose hoist enabled for "**"
+18 silly hasDependencyInstalled ROOT lerna ^2.8.0
+19 silly dependencyIsSatisfied [ 'lerna',
+19 silly dependencyIsSatisfied   '^2.8.0',
+19 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+20 verbose dependencyIsSatisfied lerna false
+21 silly hasDependencyInstalled ROOT http-server ^0.8.5
+22 silly dependencyIsSatisfied [ 'http-server',
+22 silly dependencyIsSatisfied   '^0.8.5',
+22 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+23 verbose dependencyIsSatisfied http-server false
+24 silly hasDependencyInstalled ROOT angular ^1.4.8
+25 silly dependencyIsSatisfied [ 'angular',
+25 silly dependencyIsSatisfied   '^1.4.8',
+25 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+26 verbose dependencyIsSatisfied angular false
+27 silly hasDependencyInstalled ROOT bootstrap ^3.3.6
+28 silly dependencyIsSatisfied [ 'bootstrap',
+28 silly dependencyIsSatisfied   '^3.3.6',
+28 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+29 verbose dependencyIsSatisfied bootstrap false
+30 silly hasDependencyInstalled ROOT socket.io-client ^1.4.4
+31 silly dependencyIsSatisfied [ 'socket.io-client',
+31 silly dependencyIsSatisfied   '^1.4.4',
+31 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+32 verbose dependencyIsSatisfied socket.io-client false
+33 silly hasDependencyInstalled ROOT gulp ^3.9.1
+34 silly dependencyIsSatisfied [ 'gulp',
+34 silly dependencyIsSatisfied   '^3.9.1',
+34 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+35 verbose dependencyIsSatisfied gulp false
+36 silly hasDependencyInstalled ROOT benchmark ^2.1.4
+37 silly dependencyIsSatisfied [ 'benchmark',
+37 silly dependencyIsSatisfied   '^2.1.4',
+37 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+38 verbose dependencyIsSatisfied benchmark false
+39 silly hasDependencyInstalled ROOT gulp-benchmark ^1.1.1
+40 silly dependencyIsSatisfied [ 'gulp-benchmark',
+40 silly dependencyIsSatisfied   '^1.1.1',
+40 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+41 verbose dependencyIsSatisfied gulp-benchmark false
+42 silly hasDependencyInstalled ROOT gulp-jasmine ^3.0.0
+43 silly dependencyIsSatisfied [ 'gulp-jasmine',
+43 silly dependencyIsSatisfied   '^3.0.0',
+43 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+44 verbose dependencyIsSatisfied gulp-jasmine false
+45 silly hasDependencyInstalled ROOT mamos-support file:../support
+46 silly dependencyIsSatisfied [ 'mamos-support',
+46 silly dependencyIsSatisfied   'file:../support',
+46 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+47 verbose dependencyIsSatisfied mamos-support false
+48 silly hasDependencyInstalled ROOT morgan ^1.9.0
+49 silly dependencyIsSatisfied [ 'morgan',
+49 silly dependencyIsSatisfied   '^1.9.0',
+49 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+50 verbose dependencyIsSatisfied morgan false
+51 silly hasDependencyInstalled ROOT socket.io ^2.0.4
+52 silly dependencyIsSatisfied [ 'socket.io',
+52 silly dependencyIsSatisfied   '^2.0.4',
+52 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+53 verbose dependencyIsSatisfied socket.io false
+54 silly hasDependencyInstalled ROOT socket.io-logger ^0.0.2
+55 silly dependencyIsSatisfied [ 'socket.io-logger',
+55 silly dependencyIsSatisfied   '^0.0.2',
+55 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+56 verbose dependencyIsSatisfied socket.io-logger false
+57 silly hasDependencyInstalled ROOT uuid ^3.2.1
+58 silly dependencyIsSatisfied [ 'uuid',
+58 silly dependencyIsSatisfied   '^3.2.1',
+58 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+59 verbose dependencyIsSatisfied uuid false
+60 silly hasDependencyInstalled ROOT winston ^2.4.0
+61 silly dependencyIsSatisfied [ 'winston',
+61 silly dependencyIsSatisfied   '^2.4.0',
+61 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+62 verbose dependencyIsSatisfied winston false
+63 silly hasDependencyInstalled ROOT gulp-changed ^3.2.0
+64 silly dependencyIsSatisfied [ 'gulp-changed',
+64 silly dependencyIsSatisfied   '^3.2.0',
+64 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+65 verbose dependencyIsSatisfied gulp-changed false
+66 silly hasDependencyInstalled ROOT karma ^2.0.0
+67 silly dependencyIsSatisfied [ 'karma',
+67 silly dependencyIsSatisfied   '^2.0.0',
+67 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+68 verbose dependencyIsSatisfied karma false
+69 silly hasDependencyInstalled ROOT jasmine ^2.9.0
+70 silly dependencyIsSatisfied [ 'jasmine',
+70 silly dependencyIsSatisfied   '^2.9.0',
+70 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+71 verbose dependencyIsSatisfied jasmine false
+72 silly hasDependencyInstalled ROOT karma-jasmine ^1.1.1
+73 silly dependencyIsSatisfied [ 'karma-jasmine',
+73 silly dependencyIsSatisfied   '^1.1.1',
+73 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+74 verbose dependencyIsSatisfied karma-jasmine false
+75 silly hasDependencyInstalled ROOT karma-chrome-launcher ^2.2.0
+76 silly dependencyIsSatisfied [ 'karma-chrome-launcher',
+76 silly dependencyIsSatisfied   '^2.2.0',
+76 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+77 verbose dependencyIsSatisfied karma-chrome-launcher false
+78 silly hasDependencyInstalled ROOT through2 ^2.0.3
+79 silly dependencyIsSatisfied [ 'through2',
+79 silly dependencyIsSatisfied   '^2.0.3',
+79 silly dependencyIsSatisfied   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\node_modules' ]
+80 verbose dependencyIsSatisfied through2 false
+81 silly root dependencies [
+81 silly root dependencies   {
+81 silly root dependencies     "name": "lerna",
+81 silly root dependencies     "dependents": [],
+81 silly root dependencies     "dependency": "lerna@^2.8.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "http-server",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-client",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Client-side code for bitcoin exchange side",
+81 silly root dependencies         "author": "Dean Kerr <dean_k@live.co.uk>",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "angular": "^1.4.8",
+81 silly root dependencies           "bootstrap": "^3.3.6",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "http-server": "^0.8.5"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "http-server -a localhost -p 8080 -c-1"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "http-server@^0.8.5",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "angular",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-client",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Client-side code for bitcoin exchange side",
+81 silly root dependencies         "author": "Dean Kerr <dean_k@live.co.uk>",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "angular": "^1.4.8",
+81 silly root dependencies           "bootstrap": "^3.3.6",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "http-server": "^0.8.5"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "http-server -a localhost -p 8080 -c-1"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "angular@^1.4.8",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "bootstrap",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-client",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Client-side code for bitcoin exchange side",
+81 silly root dependencies         "author": "Dean Kerr <dean_k@live.co.uk>",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "angular": "^1.4.8",
+81 silly root dependencies           "bootstrap": "^3.3.6",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "http-server": "^0.8.5"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "http-server -a localhost -p 8080 -c-1"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "bootstrap@^3.3.6",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "socket.io-client",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-client",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Client-side code for bitcoin exchange side",
+81 silly root dependencies         "author": "Dean Kerr <dean_k@live.co.uk>",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/oriondean/bitcoin-exchange-seed/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "angular": "^1.4.8",
+81 silly root dependencies           "bootstrap": "^3.3.6",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "http-server": "^0.8.5"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "http-server -a localhost -p 8080 -c-1"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       },
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "socket.io-client@^1.4.4",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "gulp",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       },
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "gulp@^3.9.1",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "benchmark",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "benchmark@^2.1.4",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "gulp-benchmark",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "gulp-benchmark@^1.1.1",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "gulp-jasmine",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "gulp-jasmine@^3.0.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "mamos-support",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "mamos-support@file:../support",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "morgan",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "morgan@^1.9.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "socket.io",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "socket.io@^2.0.4",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "socket.io-logger",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "socket.io-logger@^0.0.2",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "uuid",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "uuid@^3.2.1",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "winston",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "bitcoin-exchange-server",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Server-side code for bitcoin exchange",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [
+81 silly root dependencies           "bitcoin",
+81 silly root dependencies           "bitcoin-exchange",
+81 silly root dependencies           "bitcoin-exchange-seed"
+81 silly root dependencies         ],
+81 silly root dependencies         "//": [
+81 silly root dependencies           "We always use nodemon wrapper since it will have no effect in non debug container since it won't use a",
+81 silly root dependencies           "volume mount for the source code"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "morgan": "^1.9.0",
+81 silly root dependencies           "socket.io": "^2.0.4",
+81 silly root dependencies           "socket.io-logger": "^0.0.2",
+81 silly root dependencies           "uuid": "^3.2.1",
+81 silly root dependencies           "winston": "^2.4.0"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "benchmark": "^2.1.4",
+81 silly root dependencies           "gulp-benchmark": "^1.1.1",
+81 silly root dependencies           "gulp-jasmine": "^3.0.0",
+81 silly root dependencies           "mamos-support": "file:../support",
+81 silly root dependencies           "socket.io-client": "^1.4.4"
+81 silly root dependencies         },
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "test": "jasmine",
+81 silly root dependencies           "start": "nodemon app/server.js"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "winston@^2.4.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "gulp-changed",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "gulp-changed@^3.2.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "karma",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "karma@^2.0.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "jasmine",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "jasmine@^2.9.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "karma-jasmine",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "karma-jasmine@^1.1.1",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "karma-chrome-launcher",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "karma-chrome-launcher@^2.2.0",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   },
+81 silly root dependencies   {
+81 silly root dependencies     "name": "through2",
+81 silly root dependencies     "dependents": [
+81 silly root dependencies       {
+81 silly root dependencies         "name": "mamos-support",
+81 silly root dependencies         "version": "0.0.1",
+81 silly root dependencies         "description": "Support facilities e.g. creating docker containers for databse and logging services",
+81 silly root dependencies         "author": "Matthew Amos",
+81 silly root dependencies         "repository": {
+81 silly root dependencies           "type": "git",
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training"
+81 silly root dependencies         },
+81 silly root dependencies         "bugs": {
+81 silly root dependencies           "url": "https://github.com/blackmamo/html5-training/issues"
+81 silly root dependencies         },
+81 silly root dependencies         "keywords": [],
+81 silly root dependencies         "files": [
+81 silly root dependencies           "/js/**.js"
+81 silly root dependencies         ],
+81 silly root dependencies         "dependencies": {
+81 silly root dependencies           "gulp": "^3.9.1",
+81 silly root dependencies           "gulp-changed": "^3.2.0",
+81 silly root dependencies           "karma": "^2.0.0",
+81 silly root dependencies           "jasmine": "^2.9.0",
+81 silly root dependencies           "karma-jasmine": "^1.1.1",
+81 silly root dependencies           "karma-chrome-launcher": "^2.2.0",
+81 silly root dependencies           "through2": "^2.0.3"
+81 silly root dependencies         },
+81 silly root dependencies         "devDependencies": {},
+81 silly root dependencies         "scripts": {
+81 silly root dependencies           "start": "gulp startAll"
+81 silly root dependencies         },
+81 silly root dependencies         "private": true,
+81 silly root dependencies         "license": "MIT"
+81 silly root dependencies       }
+81 silly root dependencies     ],
+81 silly root dependencies     "dependency": "through2@^2.0.3",
+81 silly root dependencies     "isSatisfied": false
+81 silly root dependencies   }
+81 silly root dependencies ]
+82 silly leaf dependencies {}
+83 info Installing external dependencies
+84 verbose actions 2 actions, concurrency 4
+85 info hoist Installing hoisted dependencies into root
+86 silly installInDir html5-training [ 'lerna@^2.8.0',
+86 silly installInDir   'http-server@^0.8.5',
+86 silly installInDir   'angular@^1.4.8',
+86 silly installInDir   'bootstrap@^3.3.6',
+86 silly installInDir   'socket.io-client@^1.4.4',
+86 silly installInDir   'gulp@^3.9.1',
+86 silly installInDir   'benchmark@^2.1.4',
+86 silly installInDir   'gulp-benchmark@^1.1.1',
+86 silly installInDir   'gulp-jasmine@^3.0.0',
+86 silly installInDir   'mamos-support@file:../support',
+86 silly installInDir   'morgan@^1.9.0',
+86 silly installInDir   'socket.io@^2.0.4',
+86 silly installInDir   'socket.io-logger@^0.0.2',
+86 silly installInDir   'uuid@^3.2.1',
+86 silly installInDir   'winston@^2.4.0',
+86 silly installInDir   'gulp-changed@^3.2.0',
+86 silly installInDir   'karma@^2.0.0',
+86 silly installInDir   'jasmine@^2.9.0',
+86 silly installInDir   'karma-jasmine@^1.1.1',
+86 silly installInDir   'karma-chrome-launcher@^2.2.0',
+86 silly installInDir   'through2@^2.0.3' ]
+87 silly installInDir backup C:\Users\mamos\WebstormProjects\html5-training\package.json
+88 silly rename [ 'C:\\Users\\mamos\\WebstormProjects\\html5-training\\package.json',
+88 silly rename   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\package.json.lerna_backup' ]
+89 info hoist Pruning hoisted dependencies
+90 silly prune [ 'C:\\Users\\mamos\\WebstormProjects\\html5-training\\client\\node_modules\\http-server',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\client\\node_modules\\angular',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\client\\node_modules\\bootstrap',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\client\\node_modules\\socket.io-client',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\socket.io-client',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\gulp',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\gulp',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\benchmark',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\gulp-benchmark',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\gulp-jasmine',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\mamos-support',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\morgan',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\socket.io',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\socket.io-logger',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\uuid',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\server\\node_modules\\winston',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\gulp-changed',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\karma',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\jasmine',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\karma-jasmine',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\karma-chrome-launcher',
+90 silly prune   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\support\\node_modules\\through2' ]
+91 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\http-server
+92 silly installInDir writing tempJson { dependencies:
+92 silly installInDir    { lerna: '^2.8.0',
+92 silly installInDir      'http-server': '^0.8.5',
+92 silly installInDir      angular: '^1.4.8',
+92 silly installInDir      bootstrap: '^3.3.6',
+92 silly installInDir      'socket.io-client': '^1.4.4',
+92 silly installInDir      gulp: '^3.9.1',
+92 silly installInDir      benchmark: '^2.1.4',
+92 silly installInDir      'gulp-benchmark': '^1.1.1',
+92 silly installInDir      'gulp-jasmine': '^3.0.0',
+92 silly installInDir      'mamos-support': 'file:../support',
+92 silly installInDir      morgan: '^1.9.0',
+92 silly installInDir      'socket.io': '^2.0.4',
+92 silly installInDir      'socket.io-logger': '^0.0.2',
+92 silly installInDir      uuid: '^3.2.1',
+92 silly installInDir      winston: '^2.4.0',
+92 silly installInDir      'gulp-changed': '^3.2.0',
+92 silly installInDir      karma: '^2.0.0',
+92 silly installInDir      jasmine: '^2.9.0',
+92 silly installInDir      'karma-jasmine': '^1.1.1',
+92 silly installInDir      'karma-chrome-launcher': '^2.2.0',
+92 silly installInDir      through2: '^2.0.3' } }
+93 silly getExecOpts { cwd: 'C:\\Users\\mamos\\WebstormProjects\\html5-training' }
+94 silly installInDir [ 'npm', [ 'install' ] ]
+95 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\http-server
+96 verbose prune C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\http-server
+97 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\angular
+98 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\angular
+99 verbose prune C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\angular
+100 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\bootstrap
+101 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\bootstrap
+102 verbose prune C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\bootstrap
+103 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\socket.io-client
+104 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\socket.io-client
+105 verbose prune C:\Users\mamos\WebstormProjects\html5-training\client\node_modules\socket.io-client
+106 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-client
+107 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-client
+108 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-client
+109 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp
+110 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp
+111 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp
+112 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp
+113 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp
+114 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp
+115 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\benchmark
+116 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\benchmark
+117 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\benchmark
+118 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-benchmark
+119 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-benchmark
+120 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-benchmark
+121 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-jasmine
+122 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-jasmine
+123 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\gulp-jasmine
+124 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\mamos-support
+125 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\mamos-support
+126 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\mamos-support
+127 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\morgan
+128 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\morgan
+129 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\morgan
+130 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io
+131 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io
+132 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io
+133 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-logger
+134 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-logger
+135 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\socket.io-logger
+136 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\uuid
+137 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\uuid
+138 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\uuid
+139 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\winston
+140 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\winston
+141 verbose prune C:\Users\mamos\WebstormProjects\html5-training\server\node_modules\winston
+142 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp-changed
+143 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp-changed
+144 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\gulp-changed
+145 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma
+146 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma
+147 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma
+148 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\jasmine
+149 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\jasmine
+150 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\jasmine
+151 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-jasmine
+152 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-jasmine
+153 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-jasmine
+154 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-chrome-launcher
+155 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-chrome-launcher
+156 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\karma-chrome-launcher
+157 silly rimraf C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\through2
+158 verbose rimraf removed C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\through2
+159 verbose prune C:\Users\mamos\WebstormProjects\html5-training\support\node_modules\through2
+160 info hoist Finished pruning hoisted dependencies
+161 silly installInDir cleanup C:\Users\mamos\WebstormProjects\html5-training\package.json
+162 silly renameSync [ 'C:\\Users\\mamos\\WebstormProjects\\html5-training\\package.json.lerna_backup',
+162 silly renameSync   'C:\\Users\\mamos\\WebstormProjects\\html5-training\\package.json' ]
+163 error execute callback with error
+164 error Error: Command failed: npm install
+164 error npm WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+164 error npm WARN deprecated graceful-fs@3.0.11: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+164 error npm WARN deprecated nodemailer@2.7.2: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+164 error npm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+164 error npm WARN deprecated node-uuid@1.4.8: Use uuid module instead
+164 error npm WARN deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+164 error npm WARN deprecated graceful-fs@1.2.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+164 error npm ERR! code ENOLOCAL
+164 error npm ERR! Could not install from "..\support" as it does not contain a package.json file.
+164 error
+164 error npm ERR! A complete log of this run can be found in:
+164 error npm ERR!     C:\Users\mamos\AppData\Roaming\npm-cache\_logs\2018-02-02T08_50_58_274Z-debug.log
+164 error
+164 error     at Promise.all.then.arr (C:\Users\mamos\AppData\Roaming\npm\node_modules\lerna\node_modules\execa\index.js:236:11)
+164 error     at <anonymous>

@@ -81,7 +81,7 @@ function runServer(imageName, containerName, options){
 
 module.exports = {
     runServer: runServer,
-    boundServerPort: boundServerPort,
+    boundServerPort: function(){return boundServerPort},
     createServerImage: createServerImage,
     nonServerDebugDependencies: nonServerDebugDependencies
 }

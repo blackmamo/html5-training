@@ -27,10 +27,11 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "benchmark": "^2.1.4",
     "gulp-benchmark": "^1.1.1",
     "gulp-jasmine": "^3.0.0",
-    "mamos-support": "file:../support",
+    "mamos-support": "^0.0.1",
     "socket.io-client": "^1.4.4"
   },
   "scripts": {
