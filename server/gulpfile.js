@@ -26,8 +26,10 @@ gulp.task('runPerfTestServer', ['createImage'], function(){
     util.runServer(ServerImg, ServerContainer, {isTest: true, removeDeadOrders: true})
 })
 
-gulp.task('unitTests', function() {
-    gulp.src('spec/unit/*.js').pipe(jasmine())
+gulp.task('unitTests', function(done) {
+    gulp.src('spec/unit/*.js')
+        .pipe(jasmine())
+        .on('jasmineDone',function(){done()})
 })
 
 gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer']), function(done) {
@@ -42,7 +44,7 @@ gulp.task('integrationTests', util.nonServerDebugDependencies(['runTestServer'])
 })
 
 gulp.task('perfTests', util.nonServerDebugDependencies(['runTestServer']), function(done) {
-    perfTests(util.boundServerPort())
+    perfTests(util.boundServerPort(), done)
 })
 
 gulp.task('all', ['unitTests', 'integrationTests', 'perfTests'])

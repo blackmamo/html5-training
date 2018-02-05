@@ -7,6 +7,8 @@ var debugServerArg = getArg('mamos-debug-server', 9000)
 // When using a volume mount we don't need to recreate the image as often
 var useVolumeMount = getArg('use-volume-mount', true) || Boolean(debugServerArg)
 
+var fixedPort = getArg('fixed-port', true)
+
 function createServerImage(imageName, done) {
     // deps change based on whether we volume map the js source
     var deps = ["DockerFile", "package.json", "launch.sh"]
@@ -26,7 +28,7 @@ function dockerRunOptions(isTest){
     if (debugServerArg) {
         args += '--expose='+debugServerArg+' -p '+debugServerArg+':9000 '
     }
-    var dynamicPort = isTest && !debugServerArg
+    var dynamicPort = isTest && !debugServerArg && !fixedPort
     if (dynamicPort) {
         args += '-p 8080'
     } else {
@@ -64,7 +66,7 @@ function runServer(imageName, containerName, options){
             testServer = true
         }
         if (options.removeDeadOrders) {
-            removeDeadOrders = false
+            removeDeadOrders = true
         }
     }
     console.log('Test Server: ' + testServer)

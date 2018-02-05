@@ -40,14 +40,19 @@ function testWithSockets(serverPort){
         test: function(deferred) {
             // when we set the trader we can submit the orders and do the ping
             Promise.all(loggedInPromises).then(function () {
+                var aOrders = [], bOrders = []
                 for (i = 0; i < 10; i++) {
                     for (j = 0; j < 10; j++) {
-                        socketA.emit('newOrder', {side: 0, price: 99 - i, qty: 1})
-                        socketB.emit('newOrder', {side: 1, price: 101 + i, qty: 1})
+                        aOrders.push({side: 0, price: 99 - i, qty: 1})
+                        bOrders.push({side: 1, price: 101 + i, qty: 1})
                     }
                 }
 
-                // These should fill all
+                //batch send the setup orders
+                socketA.emit('newOrder', aOrders)
+                socketB.emit('newOrder', bOrders)
+
+                    // These should fill all
                 socketA.emit('newOrder', {side: 0, price: 101 + i, qty: 100})
                 socketB.emit('newOrder', {side: 1, price: 99 - i, qty: 100})
 
@@ -66,7 +71,7 @@ function testWithSockets(serverPort){
 module.exports = function(boundServerPort){
     var test = testWithSockets(boundServerPort)
     return {
-        name: 'Matcher Via Socket',
+        name: 'Matcher Via Socket (Batched Setup)',
         defer: true,
         fn: test.test,
         onComplete: test.cleanup

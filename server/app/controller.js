@@ -25,7 +25,7 @@ function SocketController(server, matcher) {
             socket.emit('OrderSnapshot', initalOrders)
         });
 
-        socket.on('newOrder', function(data){
+        function processNewOrder(data){
             var side = data.side === Side.Bid.side ? Side.Bid : Side.Offer
             var request = new OrderRequest(trader, side, data.price, data.qty)
             var validationIssues = validator.validate(request)
@@ -36,6 +36,16 @@ function SocketController(server, matcher) {
                 socket.emit('OrderStatus', rejection)
             } else {
                 matcher.submit(request)
+            }
+        }
+
+        socket.on('newOrder', function(data){
+            if (Array.isArray(data)){
+                for (var i = 0; i < data.length; i++){
+                    processNewOrder(data[i])
+                }
+            } else {
+                processNewOrder(data)
             }
         })
 
