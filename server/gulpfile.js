@@ -14,11 +14,11 @@ gulp.task('createImage', function(done){
 })
 
 gulp.task('runServer', ['createImage'], function(){
-    util.runServer(ServerImg, ServerContainer, {isTest: false, removeDeadOrders: false})
+    util.runServer(ServerImg, ServerContainer, {})
 })
 
 gulp.task('runTestServer', ['createImage'], function(){
-    util.runServer(ServerImg, ServerContainer, {isTest: true, removeDeadOrders: false})
+    util.runServer(ServerImg, ServerContainer, {isTest: true, canClearBook: true})
 })
 
 gulp.task('runPerfTestServer', ['createImage'], function(){

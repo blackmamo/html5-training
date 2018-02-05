@@ -372,5 +372,23 @@ describe("Matcher", function() {
                 expect(orderUpdates[i]).toEqual(expected)
             }
         })
+
+        it("Provides order snapshots", function(){
+            matcher.submit(new OrderRequest("Andrew", Sides.Bid, 13.0, 10))
+            idGenerator['nextOrderId'] = 1
+            matcher.submit(new OrderRequest("Andrew", Sides.Bid, 14.0, 10))
+            idGenerator['nextOrderId'] = 2
+            matcher.submit(new OrderRequest("Andrew", Sides.Offer, 16.0, 10))
+            idGenerator['nextOrderId'] = 3
+            matcher.submit(new OrderRequest("Sonia", Sides.Bid, 14.0, 10))
+            idGenerator['nextOrderId'] = 4
+            matcher.submit(new OrderRequest("Sonia", Sides.Offer, 16.0, 10))
+            idGenerator['nextOrderId'] = 5
+            matcher.submit(new OrderRequest("Sam", Sides.Bid, 13.0, 10))
+
+            expect(matcher.orderStatusSnapshot('Andrew').orders.length).toEqual(3)
+            expect(matcher.orderStatusSnapshot('Sonia').orders.length).toEqual(2)
+            expect(matcher.orderStatusSnapshot('Sam').orders.length).toEqual(1)
+        })
     })
 });

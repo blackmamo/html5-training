@@ -60,44 +60,54 @@ describe("example", function() {
 
     it("Provides snapshots", function(done) {
         trackOrders(socketA).then(function(emptyDetails){
+            // empty the book for repeatability
+            socketA.emit('clearBook',{})
+
             // add some depth
             socketA.emit('newOrder',{side: 0, price: 127.2, qty: 75})
             socketA.emit('newOrder',{side: 1, price: 128.2, qty: 75})
 
-            // setup part two which is to reconnect
-            socket.on('disconnect', function() {
-                socketA = io('http://localhost:'+serverPort, {reconnect:true})
+            promiseFinished(socketA).then(function(){
+                // setup part two which is to reconnect
+                socketA.on('disconnect', function() {
+                    socketA = io('http://localhost:'+serverPort, {reconnect:true})
 
-                // prepare to capture depth
-                var depthSnapshot
-                socket.on('DepthSnapshot', function (snapshot) {
-                    depthSnapshot = snapshot
-                })
+                    // prepare to capture depth
+                    var depthSnapshot
+                    socketA.on('DepthSnapshot', function (snapshot) {
+                        depthSnapshot = snapshot
+                    })
 
-                // reconnect and validate
-                trackOrders(socketA).then(function(details) {
-                    expect(details.snapshot.length).toEqual(2)
-                    expect(details.snapshot[0]).toEqual(partially({
-                        side: 0, price: 127.2, qty: 75, live: true
-                    }))
-                    expect(details.snapshot[1]).toEqual(partially({
-                        side: 1, price: 128.2, qty: 75, live: true
-                    }))
+                    // reconnect and validate
+                    trackOrders(socketA).then(function(details) {
+                        expect(details.snapshot.orders.length).toEqual(2)
+                        expect(details.snapshot.orders[0]).toEqual(partially({
+                            side: { side: 0 }, price: 127.2, reqQty: 75, live: true
+                        }))
+                        expect(details.snapshot.orders[1]).toEqual(partially({
+                            side: { side: 1 }, price: 128.2, reqQty: 75, live: true
+                        }))
 
-                    expect(depthSnapshot.bids.length).toEqual(1)
-                    expect(depthSnapshot.bids[0]).toEqual(partially({
-                        price: 127.2, qty: 75
-                    }))
+                        expect(depthSnapshot.bids.length).toEqual(1)
+                        expect(depthSnapshot.bids[0]).toEqual(partially({
+                            price: 127.2, qty: 75
+                        }))
 
-                    expect(depthSnapshot.offers.length).toEqual(1)
-                    expect(depthSnapshot.offers[0]).toEqual(partially({
-                        price: 128.2, qty: 75
-                    }))
-                })
-            });
+                        expect(depthSnapshot.offers.length).toEqual(1)
+                        expect(depthSnapshot.offers[0]).toEqual(partially({
+                            price: 128.2, qty: 75
+                        }))
 
-            // trigger part 2
-            socket.disconnect()
+                        done()
+                    })
+
+                    // log them in
+                    socketA.emit('setTraderId',{traderId: "Julia"})
+                });
+
+                // trigger part 2
+                socketA.disconnect()
+            })
         })
 
         // log them in

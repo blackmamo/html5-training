@@ -35,18 +35,24 @@ function dockerRunOptions(isTest){
         args += '-p '+boundServerPort+':8080'
     }
     if (useVolumeMount) {
-        args += ' -v '+process.cwd()+'/app:/usr/src/app/app:ro'
+        args += ' -v '+process.cwd()+'/app:/usr/src/app/app:rw'
     }
     return args
 }
 
-function serverOptions(removeDeadOrders) {
+function serverOptions(removeDeadOrders, canClearBook) {
     args = ''
     if (removeDeadOrders){
         args += ' --remove-dead-orders'
     }
+    if (canClearBook){
+        args += ' --can-clear-book'
+    }
     if (debugServerArg) {
         args += ' --debug'
+    }
+    if (useVolumeMount) {
+        args += ' --nodemon'
     }
     return args
 }
@@ -60,7 +66,7 @@ function nonServerDebugDependencies(dependencies) {
 }
 
 function runServer(imageName, containerName, options){
-    var testServer = false, removeDeadOrders = false
+    var testServer = false, removeDeadOrders = false, canClearBook=false
     if (options){
         if (options.isTest) {
             testServer = true
@@ -68,10 +74,13 @@ function runServer(imageName, containerName, options){
         if (options.removeDeadOrders) {
             removeDeadOrders = true
         }
+        if (options.canClearBook) {
+            canClearBook = true
+        }
     }
     console.log('Test Server: ' + testServer)
     console.log('Server removing dead orders: ' + removeDeadOrders)
-    dockerUtils.runImage(imageName, dockerRunOptions(testServer), containerName, serverOptions(removeDeadOrders))
+    dockerUtils.runImage(imageName, dockerRunOptions(testServer), containerName, serverOptions(removeDeadOrders, canClearBook))
 
     // capture the port the server has locally
     var portOutput = dockerUtils.runCmd('docker port '+containerName+' 8080', true)

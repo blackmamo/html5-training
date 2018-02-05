@@ -13,10 +13,12 @@ var DepthSnapshot = DepthEvents.DepthSnapshot, DepthChanged = DepthEvents.DepthC
 // order book that I won't. If I was adding more complex order types, I may well separate them
 // The idGeneration is a policy thing we don't want to bake into the matcher implementation,
 // hence it is injected
-function Matcher(updateHandler, idGenerator, removeDeadOrders) {
+function Matcher(updateHandler, idGenerator, removeDeadOrders, canClearBook) {
     this.idGenerator = idGenerator
     this.updateHandler = updateHandler
     this.removeDeadOrders = removeDeadOrders
+    this.canClearBook = canClearBook
+
     // Would ideally like to use a sorted map, could use the ones in collections.js
     // but keeping it simple for now
     this.bids = []
@@ -192,9 +194,9 @@ Matcher.prototype.addToBook = function(order, side) {
 
 // private - used by submit
 Matcher.prototype.storeOrder = function(order) {
-    var traderOrders = this.orders[order.traderId]
+    var traderOrders = this.orders[order.trader]
     if (!traderOrders) {
-        this.orders[order.trader] = traderOrders = []
+        this.orders[order.trader] = traderOrders = {}
     }
     traderOrders[order.orderId] = order
 }
@@ -206,6 +208,17 @@ Matcher.prototype.submit = function(order) {
     var matchedOrder = this.match(ackedOrder, side)
     if (matchedOrder.remainingQty > 0) {
         this.addToBook(matchedOrder, side)
+    }
+}
+
+Matcher.prototype.clear = function(){
+    if (this.canClearBook){
+        var traders = Object.keys(this.orders)
+        for(var i = 0; i < traders.length; i++){
+            delete this.orders[traders[i]]
+        }
+        this.bids.length = 0
+        this.offers.length = 0
     }
 }
 

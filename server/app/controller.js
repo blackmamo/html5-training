@@ -6,11 +6,17 @@ var DepthChanged = DepthEvents.DepthChanged, DepthRemoved = DepthEvents.DepthRem
 var OrderEvents = require("../app/orderEvents");
 var OrderRequest = OrderEvents.OrderRequest, OrderStatus = OrderEvents.OrderStatus,
     Fill = OrderEvents.Fill
+var logger = require('winston')
 
 function SocketController(server, matcher) {
     var io = socketIo(server)
     this.io = io
     var validator = new OrderRequestValidator()
+
+    // io.use(function(data,cb){
+    //     logger.info(data)
+    //     cb()
+    // })
 
     io.on('connection', function (socket) {
         var trader
@@ -47,6 +53,10 @@ function SocketController(server, matcher) {
             } else {
                 processNewOrder(data)
             }
+        })
+
+        socket.on('clearBook', function() {
+            matcher.clear()
         })
 
         // useful in finding the end of tests and for the client to check that the server is alive
