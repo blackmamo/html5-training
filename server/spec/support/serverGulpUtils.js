@@ -24,7 +24,7 @@ function createServerImage(imageName, done) {
 // The point of dynamic port binding for tests is in a CI environment we can run builds in parallel
 var boundServerPort = 8888
 function dockerRunOptions(isTest){
-    var args = ''
+    var args = '--link elkServer '
     if (debugServerArg) {
         args += '--expose='+debugServerArg+' -p '+debugServerArg+':9000 '
     }

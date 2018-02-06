@@ -1,6 +1,7 @@
 var Benchmark = require('benchmark');
 var suite = new Benchmark.Suite('OrderBook');
 var matcherBench = require('./matcherBenchmark')
+var matcherManySocketBench = require('./matcherManySocketBenchmark')
 var matcherBatchedBench = require('./matcherBatchedBenchmark')
 var matcherNoSocketBench = require('./matcherNoSocketBenchmark')
 var socketRoundTripBenchmark = require('./socketRoundTripBenchmark')
@@ -10,11 +11,17 @@ var twoSocketRoundTripNoConnectionBenchmark = require('./twoSocketRoundTripNoCon
 module.exports = function(boundServerPort, done){
     // add tests
     suite.add(matcherNoSocketBench)
+
+    // Testing some alternatives
     suite.add(matcherBench(boundServerPort))
+    suite.add(matcherManySocketBench(boundServerPort))
     suite.add(matcherBatchedBench(boundServerPort))
+
+    // These were added to work out how to speed things up
     suite.add(socketRoundTripBenchmark(boundServerPort))
     suite.add(socketRoundTripNoConnectionBenchmark(boundServerPort))
     suite.add(twoSocketRoundTripNoConnectionBenchmark(boundServerPort))
+
     // add listeners
     .on('cycle', function(event) {
         console.log(String(event.target));

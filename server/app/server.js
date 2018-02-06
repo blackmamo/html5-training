@@ -2,14 +2,21 @@ const uuid = require('uuid/v1');
 var Matcher = require("../app/matcher");
 var SocketController = require("../app/controller");
 var winston = require("winston");
+var WinstonElastic = require('winston-elasticsearch');
+const elasticsearch = require('elasticsearch');
 
-// const logger = winston.configure({
-//     level: 'info',
-//     transports: [
-//         new winston.transports.File({ name: 'loggerA', filename: '/usr/src/app/error.log', level: 'error' }),
-//         new winston.transports.File({ name: 'loggerB', filename: '/usr/src/app/combined.log' })
-//     ]
-// });
+var elasticClient = new elasticsearch.Client({
+    host: process.env.ELKSERVER_PORT_9200_TCP_ADDR+':9200',
+    log: 'info'})
+
+winston.configure({
+    level: 'info',
+    transports: [
+        new winston.transports.File({ name: 'loggerA', filename: '/usr/src/app/app/error.log', level: 'error' }),
+        new winston.transports.File({ name: 'loggerB', filename: '/usr/src/app/app/combined.log' }),
+        new WinstonElastic({level:'info', client: elasticClient})
+    ]
+});
 
 // No need to return any html yet
 function handler (req, res) {

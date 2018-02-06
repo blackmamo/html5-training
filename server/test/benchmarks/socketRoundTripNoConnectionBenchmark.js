@@ -1,31 +1,21 @@
 var io = require("socket.io-client")
+var socketUtils = require('./matcherCommon')
 
-function testSocket(serverPort) {
-    var socket = io('http://localhost:' + serverPort, {reconnect: true});
-    return {
-        test: function (deferred) {
-
-            new Promise(function(resolve, reject){
-                socket.once('song',function(){
-                    resolve()
-                })
-            }).then(function () {
-                deferred.resolve()
-            })
-            socket.emit('sing',{})
-        },
-        cleanup: function(){
-            socket.disconnect()
-        }
-    }
-}
-
-module.exports = function(boundServerPort){
-    var test = testSocket(boundServerPort)
+module.exports = function(serverPort){
+    var socket
     return {
         name: 'Socket Round Trip (Reused Connection)',
         defer: true,
-        fn: test.test,
-        onComplete: test.cleanup
+        onStart: function(){
+            socket = io('http://localhost:' + serverPort, {reconnect: true});
+        },
+        fn: function (deferred) {
+            socketUtils.allFinished([socket]).then(function () {
+                deferred.resolve()
+            })
+        },
+        onComplete: function(){
+            socket.disconnect()
+        }
     }
 }

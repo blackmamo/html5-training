@@ -37,6 +37,9 @@ describe("example", function() {
     }
 
     it("Fills orders", function(done) {
+        // empty the book for repeatability
+        socketA.emit('clearBook',{})
+
         // listen for order updates, before logging in
         Promise.all([trackOrders(socketA), trackOrders(socketB)]).then(function(values){
             var updatesA = values[0], updatesB = values[1]
