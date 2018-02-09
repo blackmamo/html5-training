@@ -1,119 +1,148 @@
-var partially = jasmine.objectContaining
+const partially = jasmine.objectContaining;
 
-describe("example", function() {
-    // There has to be a nicer way than this? TODO require karma, look at args and this
-    var serverPort =  __karma__.config.jasmine.serverPort
-    var timeout =  __karma__.config.jasmine.timeout
-    console.log("Connecting to server on port: "+__karma__.config.jasmine.serverPort)
-    var socketA = io('http://localhost:'+serverPort, {reconnect:true});
-    var socketB = io('http://localhost:'+serverPort, {reconnect:true});
+describe("example", () => {
+  // There has to be a nicer way than this? TODO require karma, look at args and this
+  let serverPort = __karma__.config.jasmine.serverPort;
+  let timeout = __karma__.config.jasmine.timeout;
+  console.log(
+    "Connecting to server on port: " + __karma__.config.jasmine.serverPort
+  );
+  let socketA = io("http://localhost:" + serverPort, { reconnect: true });
+  let socketB = io("http://localhost:" + serverPort, { reconnect: true });
 
-    function trackOrders(socket){
-        return new Promise(function(resolve, reject) {
-            var details = {}
-            socket.on('OrderSnapshot', function (snapShot) {
-                details['snapshot'] = snapShot
-                details['updates'] = []
-                details['fills'] = []
-                socket.on('OrderStatus', function (update) {
-                    details.updates.push(update)
-                })
-                socket.on('Fill', function (fill) {
-                    details.fills.push(fill)
-                })
-                resolve(details)
-            })
-        })
-    }
+  function trackOrders(socket) {
+    return new Promise((resolve, reject) => {
+      let details = {};
+      socket.on("OrderSnapshot", snapShot => {
+        details["snapshot"] = snapShot;
+        details["updates"] = [];
+        details["fills"] = [];
+        socket.on("OrderStatus", update => {
+          details.updates.push(update);
+        });
+        socket.on("Fill", fill => {
+          details.fills.push(fill);
+        });
+        resolve(details);
+      });
+    });
+  }
 
-    function promiseFinished(socket){
-        var prm = new Promise(function(resolve, reject){
-            socket.on('song',function(){
-                resolve()
-            })
-        })
-        socket.emit('sing',{foo:"hh"})
-        return prm
-    }
+  function promiseFinished(socket) {
+    let prm = new Promise((resolve, reject) => {
+      socket.on("song", () => {
+        resolve();
+      });
+    });
+    socket.emit("sing", { foo: "hh" });
+    return prm;
+  }
 
-    it("Fills orders", function(done) {
+  it(
+    "Fills orders",
+    done => {
+      // empty the book for repeatability
+      socketA.emit("clearBook", {});
+
+      // listen for order updates, before logging in
+      Promise.all([trackOrders(socketA), trackOrders(socketB)]).then(values => {
+        let updatesA = values[0],
+          updatesB = values[1];
+
+        socketA.emit("newOrder", { side: 0, price: 127.2, qty: 75 });
+        socketB.emit("newOrder", { side: 1, price: 127.2, qty: 75 });
+
+        Promise.all([promiseFinished(socketA), promiseFinished(socketB)]).then(
+          () => {
+            expect(updatesA.updates.length).toEqual(2);
+            expect(updatesB.updates.length).toEqual(2);
+            expect(updatesA.fills.length).toEqual(1);
+            expect(updatesB.fills.length).toEqual(1);
+            done();
+          }
+        );
+      });
+
+      // log them in
+      socketA.emit("setTraderId", { traderId: "Julia" });
+      socketB.emit("setTraderId", { traderId: "Melissa" });
+    },
+    timeout
+  );
+
+  it(
+    "Provides snapshots",
+    function(done) {
+      trackOrders(socketA).then(emptyDetails => {
         // empty the book for repeatability
-        socketA.emit('clearBook',{})
+        socketA.emit("clearBook", {});
 
-        // listen for order updates, before logging in
-        Promise.all([trackOrders(socketA), trackOrders(socketB)]).then(function(values){
-            var updatesA = values[0], updatesB = values[1]
+        // add some depth
+        socketA.emit("newOrder", { side: 0, price: 127.2, qty: 75 });
+        socketA.emit("newOrder", { side: 1, price: 128.2, qty: 75 });
 
-            socketA.emit('newOrder',{side: 0, price: 127.2, qty: 75})
-            socketB.emit('newOrder',{side: 1, price: 127.2, qty: 75})
+        promiseFinished(socketA).then(() => {
+          // setup part two which is to reconnect
+          socketA.on("disconnect", () => {
+            socketA = io("http://localhost:" + serverPort, { reconnect: true });
 
-            Promise.all([promiseFinished(socketA),promiseFinished(socketB)]).then(function(){
-                expect(updatesA.updates.length).toEqual(2)
-                expect(updatesB.updates.length).toEqual(2)
-                expect(updatesA.fills.length).toEqual(1)
-                expect(updatesB.fills.length).toEqual(1)
-                done()
-            })
-        })
+            // prepare to capture depth
+            let depthSnapshot;
+            socketA.on("DepthSnapshot", snapshot => {
+              depthSnapshot = snapshot;
+            });
 
-        // log them in
-        socketA.emit('setTraderId',{traderId: "Julia"})
-        socketB.emit('setTraderId',{traderId: "Melissa"})
-    }, timeout)
+            // reconnect and validate
+            trackOrders(socketA).then(details => {
+              expect(details.snapshot.orders.length).toEqual(2);
+              expect(details.snapshot.orders[0]).toEqual(
+                partially({
+                  side: { side: 0 },
+                  price: 127.2,
+                  reqQty: 75,
+                  live: true
+                })
+              );
+              expect(details.snapshot.orders[1]).toEqual(
+                partially({
+                  side: { side: 1 },
+                  price: 128.2,
+                  reqQty: 75,
+                  live: true
+                })
+              );
 
-    it("Provides snapshots", function(done) {
-        trackOrders(socketA).then(function(emptyDetails){
-            // empty the book for repeatability
-            socketA.emit('clearBook',{})
+              expect(depthSnapshot.bids.length).toEqual(1);
+              expect(depthSnapshot.bids[0]).toEqual(
+                partially({
+                  price: 127.2,
+                  qty: 75
+                })
+              );
 
-            // add some depth
-            socketA.emit('newOrder',{side: 0, price: 127.2, qty: 75})
-            socketA.emit('newOrder',{side: 1, price: 128.2, qty: 75})
+              expect(depthSnapshot.offers.length).toEqual(1);
+              expect(depthSnapshot.offers[0]).toEqual(
+                partially({
+                  price: 128.2,
+                  qty: 75
+                })
+              );
 
-            promiseFinished(socketA).then(function(){
-                // setup part two which is to reconnect
-                socketA.on('disconnect', function() {
-                    socketA = io('http://localhost:'+serverPort, {reconnect:true})
+              done();
+            });
 
-                    // prepare to capture depth
-                    var depthSnapshot
-                    socketA.on('DepthSnapshot', function (snapshot) {
-                        depthSnapshot = snapshot
-                    })
+            // log them in
+            socketA.emit("setTraderId", { traderId: "Julia" });
+          });
 
-                    // reconnect and validate
-                    trackOrders(socketA).then(function(details) {
-                        expect(details.snapshot.orders.length).toEqual(2)
-                        expect(details.snapshot.orders[0]).toEqual(partially({
-                            side: { side: 0 }, price: 127.2, reqQty: 75, live: true
-                        }))
-                        expect(details.snapshot.orders[1]).toEqual(partially({
-                            side: { side: 1 }, price: 128.2, reqQty: 75, live: true
-                        }))
+          // trigger part 2
+          socketA.disconnect();
+        });
+      });
 
-                        expect(depthSnapshot.bids.length).toEqual(1)
-                        expect(depthSnapshot.bids[0]).toEqual(partially({
-                            price: 127.2, qty: 75
-                        }))
-
-                        expect(depthSnapshot.offers.length).toEqual(1)
-                        expect(depthSnapshot.offers[0]).toEqual(partially({
-                            price: 128.2, qty: 75
-                        }))
-
-                        done()
-                    })
-
-                    // log them in
-                    socketA.emit('setTraderId',{traderId: "Julia"})
-                });
-
-                // trigger part 2
-                socketA.disconnect()
-            })
-        })
-
-        // log them in
-        socketA.emit('setTraderId',{traderId: "Julia"})
-    },timeout)
-})
+      // log them in
+      socketA.emit("setTraderId", { traderId: "Julia" });
+    },
+    timeout
+  );
+});

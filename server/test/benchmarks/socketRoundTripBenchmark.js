@@ -1,21 +1,17 @@
-var io = require("socket.io-client")
-var socketUtils = require('./matcherCommon')
+const io = require("socket.io-client");
+const socketUtils = require("./matcherCommon");
 
-function testSocket(serverPort) {
-    return
-}
+module.exports = serverPort => {
+  return {
+    name: "Socket Round Trip",
+    defer: true,
+    fn: deferred => {
+      let socket = io("http://localhost:" + serverPort, { reconnect: true });
 
-module.exports = function(serverPort){
-    return {
-        name: 'Socket Round Trip',
-        defer: true,
-        fn: function (deferred) {
-            var socket = io('http://localhost:' + serverPort, {reconnect: true});
-
-            socketUtils.allFinished([socket]).then(function () {
-                socket.disconnect()
-                deferred.resolve()
-            })
-        }
+      socketUtils.allFinished([socket]).then(() => {
+        socket.disconnect();
+        deferred.resolve();
+      });
     }
-}
+  };
+};

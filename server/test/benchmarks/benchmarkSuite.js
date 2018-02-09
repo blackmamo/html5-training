@@ -1,34 +1,35 @@
-var Benchmark = require('benchmark');
-var suite = new Benchmark.Suite('OrderBook');
-var matcherBench = require('./matcherBenchmark')
-var matcherManySocketBench = require('./matcherManySocketBenchmark')
-var matcherBatchedBench = require('./matcherBatchedBenchmark')
-var matcherNoSocketBench = require('./matcherNoSocketBenchmark')
-var socketRoundTripBenchmark = require('./socketRoundTripBenchmark')
-var socketRoundTripNoConnectionBenchmark = require('./socketRoundTripNoConnectionBenchmark')
-var twoSocketRoundTripNoConnectionBenchmark = require('./twoSocketRoundTripNoConnectionBenchmark')
+const Benchmark = require("benchmark");
+const suite = new Benchmark.Suite("OrderBook");
+const matcherBench = require("./matcherBenchmark");
+const matcherManySocketBench = require("./matcherManySocketBenchmark");
+const matcherBatchedBench = require("./matcherBatchedBenchmark");
+const matcherNoSocketBench = require("./matcherNoSocketBenchmark");
+const socketRoundTripBenchmark = require("./socketRoundTripBenchmark");
+const socketRoundTripNoConnectionBenchmark = require("./socketRoundTripNoConnectionBenchmark");
+const twoSocketRoundTripNoConnectionBenchmark = require("./twoSocketRoundTripNoConnectionBenchmark");
 
-module.exports = function(boundServerPort, done){
-    // add tests
-    suite.add(matcherNoSocketBench)
+module.exports = (boundServerPort, done) => {
+  // add tests
+  suite.add(matcherNoSocketBench);
 
-    // Testing some alternatives
-    suite.add(matcherBench(boundServerPort))
-    suite.add(matcherManySocketBench(boundServerPort))
-    suite.add(matcherBatchedBench(boundServerPort))
+  // Testing some alternatives
+  suite.add(matcherBench(boundServerPort));
+  suite.add(matcherManySocketBench(boundServerPort));
+  suite.add(matcherBatchedBench(boundServerPort));
 
-    // These were added to work out how to speed things up
-    suite.add(socketRoundTripBenchmark(boundServerPort))
-    suite.add(socketRoundTripNoConnectionBenchmark(boundServerPort))
-    suite.add(twoSocketRoundTripNoConnectionBenchmark(boundServerPort))
+  // These were added to work out how to speed things up
+  suite.add(socketRoundTripBenchmark(boundServerPort));
+  suite.add(socketRoundTripNoConnectionBenchmark(boundServerPort));
+  suite
+    .add(twoSocketRoundTripNoConnectionBenchmark(boundServerPort))
 
     // add listeners
-    .on('cycle', function(event) {
-        console.log(String(event.target));
+    .on("cycle", event => {
+      console.log(String(event.target));
     })
-    .on('complete', function() {
-        done()
+    .on("complete", () => {
+      done();
     })
     // run async
-    .run({ 'async': false});
-}
+    .run({ async: false });
+};

@@ -1,8 +1,8 @@
-var Matcher = require('../../app/matcher')
-var Sides = require("../../app/side");
-var OrderEvents = require("../../app/orderEvents");
-var OrderRequest = OrderEvents.OrderRequest
-const uuid = require('uuid/v1');
+const Matcher = require("../../app/matcher");
+const Sides = require("../../app/side");
+const OrderEvents = require("../../app/orderEvents");
+const OrderRequest = OrderEvents.OrderRequest;
+const uuid = require("uuid/v1");
 
 // These perf tests measure just the matcher in isolation
 
@@ -14,30 +14,34 @@ const uuid = require('uuid/v1');
 //  1. Build depth on both sides of the market, 10 levels, with 10 orders each, all size 1
 //  2. Submit orders that cross the spread and fill all of both sides, size 100, i.e. all depth consumed
 
+function testWithoutSockets() {
+  let matcher = new Matcher(
+    () => {},
+    {
+      getTradeId: () => {
+        return uuid();
+      },
+      getOrderId: trader => {
+        return uuid();
+      }
+    },
+    true
+  );
 
-function testWithoutSockets(){
-    var matcher = new Matcher(
-        function(){},
-        {
-            getTradeId: function() {return uuid()},
-            getOrderId: function(trader) {return uuid()}
-        },
-        true)
-
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            matcher.submit(new OrderRequest("Julia", Sides.Bid, 99 - i, 1))
-            matcher.submit(new OrderRequest("Melissa", Sides.Offer, 101 + i, 1))
-        }
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      matcher.submit(new OrderRequest("Julia", Sides.Bid, 99 - i, 1));
+      matcher.submit(new OrderRequest("Melissa", Sides.Offer, 101 + i, 1));
     }
+  }
 
-    // These should fill all
-    matcher.submit(new OrderRequest("Julia", Sides.Bid, 101 + i, 100))
-    matcher.submit(new OrderRequest("Melissa", Sides.Offer, 99 - i, 100))
+  // These should fill all
+  matcher.submit(new OrderRequest("Julia", Sides.Bid, 101 + i, 100));
+  matcher.submit(new OrderRequest("Melissa", Sides.Offer, 99 - i, 100));
 }
 
 module.exports = {
-    name: 'Matcher Direct',
-    defer: false,
-    fn: testWithoutSockets
-}
+  name: "Matcher Direct",
+  defer: false,
+  fn: testWithoutSockets
+};

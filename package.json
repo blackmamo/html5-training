@@ -1,5 +1,13 @@
 {
-	"devDependencies": {
-		"lerna": "^2.8.0"
-	}
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "lerna": "^2.8.0",
+    "prettier": "^1.10.2"
+  },
+  "dependencies": {
+    "istanbul": "^0.4.5"
+  }
 }
