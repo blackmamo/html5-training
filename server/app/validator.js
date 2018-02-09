@@ -1,13 +1,11 @@
 const Sides = require("../app/side");
 
-function OrderRequestValidator() {}
-
 function objStr(obj) {
   let str = Object.prototype.toString.call(obj);
   return str;
 }
 
-OrderRequestValidator.prototype.validate = function(order) {
+module.exports = function(order) {
   let issues = [];
   if ("[object String]" !== objStr(order.trader)) {
     issues.push("Trader must be a string value");
@@ -28,5 +26,3 @@ OrderRequestValidator.prototype.validate = function(order) {
   }
   return issues;
 };
-
-module.exports = OrderRequestValidator;
