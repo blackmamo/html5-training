@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const jasmine = require("gulp-jasmine");
-const karma = require("bitcoin-support/js/karmaGulpUtils");
+const karma = require("bitcoin-test/js/karmaGulpUtils");
 const perfTests = require("./test/benchmarks/benchmarkSuite");
 const eslint = require("gulp-eslint");
 const istanbul = require("gulp-istanbul");

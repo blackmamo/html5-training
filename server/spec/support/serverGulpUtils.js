@@ -1,5 +1,5 @@
-const dockerUtils = require("bitcoin-support/js/dockerGulpUtils");
-const getArg = require("bitcoin-support/js/getArg");
+const dockerUtils = require("bitcoin-test/js/dockerGulpUtils");
+const getArg = require("bitcoin-test/js/getArg");
 
 // If this const is set, the server will be started up such that the
 const debugServerArg = getArg("mamos-debug-server", 9000);

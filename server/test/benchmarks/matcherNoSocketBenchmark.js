@@ -1,7 +1,7 @@
 const Matcher = require("../../app/matcher");
-const Sides = require("../../app/side");
-const OrderEvents = require("../../app/orderEvents");
-const OrderRequest = OrderEvents.OrderRequest;
+const common = require("bitcoin-common");
+const Sides = common.Side;
+const OrderRequest = common.OrderRequest;
 const uuid = require("uuid/v1");
 
 // These perf tests measure just the matcher in isolation

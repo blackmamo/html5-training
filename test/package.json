@@ -1,5 +1,5 @@
 {
-  "name": "bitcoin-support",
+  "name": "bitcoin-test",
   "version": "0.0.1",
   "description": "Support facilities e.g. creating docker containers for databse and logging services",
   "author": "Matthew Amos",

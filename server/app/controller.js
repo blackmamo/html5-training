@@ -1,13 +1,12 @@
 const socketIo = require("socket.io");
-const Side = require("../app/side");
 const validate = require("../app/validator");
-const DepthEvents = require("../app/depthEvents");
-const DepthChanged = DepthEvents.DepthChanged,
-  DepthRemoved = DepthEvents.DepthRemoved;
-const OrderEvents = require("../app/orderEvents");
-const OrderRequest = OrderEvents.OrderRequest,
-  OrderStatus = OrderEvents.OrderStatus,
-  Fill = OrderEvents.Fill;
+const common = require("bitcoin-common");
+const Side = common.Side;
+const DepthChanged = common.DepthChanged,
+  DepthRemoved = common.DepthRemoved;
+const OrderRequest = common.OrderRequest,
+  OrderStatus = common.OrderStatus,
+  Fill = common.Fill;
 const logger = require("winston");
 
 class SocketController {
@@ -51,7 +50,7 @@ class SocketController {
       });
 
       function processNewOrder(data) {
-        let side = data.side === Side.Bid.side ? Side.Bid : Side.Offer;
+        let side = Side[data.side];
         let request = new OrderRequest(trader, side, data.price, data.qty);
         let validationIssues = validate(request);
         if (validationIssues.length !== 0) {

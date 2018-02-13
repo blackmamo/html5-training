@@ -1,7 +1,7 @@
 const validate = require("../../app/validator");
-const Sides = require("../../app/side");
-const OrderEvents = require("../../app/orderEvents");
-const OrderRequest = OrderEvents.OrderRequest;
+const common = require("bitcoin-common");
+const Sides = common.Side;
+const OrderRequest = common.OrderRequest;
 
 describe("OrderRequestValidator", () => {
   it("accepts valid new OrderRequests", () => {

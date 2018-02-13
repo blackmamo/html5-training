@@ -1,12 +1,11 @@
-const Sides = require("../app/side");
-const OrderEvents = require("../app/orderEvents");
-const DepthEvents = require("../app/depthEvents");
-const OrderStatus = OrderEvents.OrderStatus,
-  Fill = OrderEvents.Fill,
-  OrderStatusSnapshot = OrderEvents.OrderStatusSnapshot;
-const DepthSnapshot = DepthEvents.DepthSnapshot,
-  DepthChanged = DepthEvents.DepthChanged,
-  DepthRemoved = DepthEvents.DepthRemoved;
+const common = require("bitcoin-common");
+const Sides = common.Side;
+const OrderStatus = common.OrderStatus,
+  Fill = common.Fill,
+  OrderStatusSnapshot = common.OrderStatusSnapshot;
+const DepthSnapshot = common.DepthSnapshot,
+  DepthChanged = common.DepthChanged,
+  DepthRemoved = common.DepthRemoved;
 
 // Separation of concerns means that the matcher has a single update handler to send out events
 // Ensuring that the correct messages
@@ -32,7 +31,7 @@ class Matcher {
     this.orders = {};
     // These are basically strategies for implementing the two order types
     let sideStrategies = {};
-    sideStrategies[Sides.Bid.side] = {
+    sideStrategies[Sides.Bid] = {
       toMatch: this.offers,
       toJoin: this.bids,
       opposite: Sides.Offer,
@@ -40,7 +39,7 @@ class Matcher {
         return orderPrice >= otherOrderPrice;
       }
     };
-    sideStrategies[Sides.Offer.side] = {
+    sideStrategies[Sides.Offer] = {
       toMatch: this.bids,
       toJoin: this.offers,
       opposite: Sides.Bid,
@@ -49,7 +48,7 @@ class Matcher {
       }
     };
     this.side = order => {
-      return sideStrategies[order.side.side];
+      return sideStrategies[order.side];
     };
   }
 

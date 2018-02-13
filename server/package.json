@@ -21,12 +21,12 @@
   ],
   "dependencies": {
     "elasticsearch": "^14.1.0",
-    "istanbul": "^0.4.5",
     "morgan": "^1.9.0",
     "socket.io": "^2.0.4",
     "uuid": "^3.2.1",
     "winston": "^2.4.0",
-    "winston-elasticsearch": "^0.5.6"
+    "winston-elasticsearch": "^0.5.6",
+    "bitcoin-common": "^0.0.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -38,7 +38,8 @@
     "microtime": "^2.1.7",
     "jasmine": "^3.0.0",
     "gulp-jasmine": "^3.0.0",
-    "bitcoin-support": "^0.0.1",
+    "bitcoin-test": "^0.0.1",
+    "istanbul": "^0.4.5",
     "socket.io-client": "^1.4.4"
   },
   "scripts": {

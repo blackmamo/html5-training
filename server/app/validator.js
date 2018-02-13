@@ -1,4 +1,4 @@
-const Sides = require("../app/side");
+const Sides = require("bitcoin-common").Side;
 
 function objStr(obj) {
   let str = Object.prototype.toString.call(obj);
