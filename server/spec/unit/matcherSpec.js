@@ -602,9 +602,15 @@ describe("Matcher", () => {
       idGenerator["nextOrderId"] = 5;
       matcher.submit(new OrderRequest("Sam", Sides.Bid, 13.0, 10));
 
-      expect(matcher.orderStatusSnapshot("Andrew").orders.length).toEqual(3);
-      expect(matcher.orderStatusSnapshot("Sonia").orders.length).toEqual(2);
-      expect(matcher.orderStatusSnapshot("Sam").orders.length).toEqual(1);
+      expect(
+        Object.keys(matcher.orderStatusSnapshot("Andrew").orders).length
+      ).toEqual(3);
+      expect(
+        Object.keys(matcher.orderStatusSnapshot("Sonia").orders).length
+      ).toEqual(2);
+      expect(
+        Object.keys(matcher.orderStatusSnapshot("Sam").orders).length
+      ).toEqual(1);
     });
   });
 });

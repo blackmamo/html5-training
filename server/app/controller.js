@@ -1,7 +1,6 @@
 const socketIo = require("socket.io");
 const validate = require("../app/validator");
 const common = require("bitcoin-common");
-const Side = common.Side;
 const DepthChanged = common.DepthChanged,
   DepthRemoved = common.DepthRemoved;
 const OrderRequest = common.OrderRequest,
@@ -9,18 +8,19 @@ const OrderRequest = common.OrderRequest,
   Fill = common.Fill;
 const logger = require("winston");
 
-class SocketController {
-  logMeta(socket, trader, event) {
-    let meta = { id: socket.id };
-    if (trader) {
-      meta["trader"] = trader;
-    }
-    if (event) {
-      meta["event"] = event;
-    }
-    return meta;
+function logMeta(socket, trader, event) {
+  let meta = { id: socket.id };
+  if (trader) {
+    meta["trader"] = trader;
   }
+  if (event) {
+    event["_constructor"] = event.constructor.name;
+    meta["event"] = event;
+  }
+  return meta;
+}
 
+class SocketController {
   constructor(server, matcher) {
     let io = socketIo(server);
     this.io = io;
@@ -50,8 +50,7 @@ class SocketController {
       });
 
       function processNewOrder(data) {
-        let side = Side[data.side];
-        let request = new OrderRequest(trader, side, data.price, data.qty);
+        let request = new OrderRequest(trader, data.side, data.price, data.qty);
         let validationIssues = validate(request);
         if (validationIssues.length !== 0) {
           let rejection = new OrderStatus(

@@ -1,4 +1,6 @@
 import { Side } from "./side";
+import 'reflect-metadata'
+import { Type } from "class-transformer";
 
 // When a client first connects to a Book it will recieve a book snapshot, and live orders
 export class Level{
@@ -12,7 +14,9 @@ export class Level{
 }
 
 export class DepthSnapshot {
+  @Type(() => Level)
   bids: Level[];
+  @Type(() => Level)
   offers: Level[];
 
   constructor(bids: Level[], offers: Level[]) {

@@ -51,6 +51,12 @@ describe("OrderRequestValidator", () => {
     expect(validate(new OrderRequest("Gil", null, 12.5, 1)).length).toEqual(1);
     expect(validate(new OrderRequest("Gil", "bid", 12.5, 1)).length).toEqual(1);
     expect(validate(new OrderRequest("Gil", 3, 12.5, 1)).length).toEqual(1);
+    expect(
+      validate(new OrderRequest("Gil", Sides.Bid, 12.5, 1)).length
+    ).toEqual(0);
+    expect(
+      validate(new OrderRequest("Gil", Sides.Offer, 12.5, 1)).length
+    ).toEqual(0);
   });
 
   it("only accepts numeric non NaN prices", () => {

@@ -273,13 +273,7 @@ class Matcher {
 
   orderStatusSnapshot(trader) {
     let traderOrders = this.orders[trader];
-    return new OrderStatusSnapshot(
-      traderOrders
-        ? Object.keys(traderOrders).map(k => {
-            return traderOrders[k];
-          })
-        : []
-    );
+    return new OrderStatusSnapshot(Object.assign({}, traderOrders));
   }
 }
 

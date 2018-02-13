@@ -1,4 +1,6 @@
 import { Side } from "./side";
+import 'reflect-metadata'
+import {Type} from 'class-transformer';
 
 // Sent by the client to send an order to the matcher
 export class OrderRequest {
@@ -27,6 +29,7 @@ export class OrderStatus {
   remainingQty: Number;
   live: Boolean;
   status: String;
+  updated: Date;
 
   constructor(
     orderId: String,
@@ -46,6 +49,7 @@ export class OrderStatus {
     this.remainingQty = remainingQty;
     this.live = live;
     this.status = status;
+    this.updated = new Date();
   }
 }
 
@@ -81,9 +85,18 @@ export class Fill {
 
 // When a client connects, it will obtain a snapshot of its order book
 export class OrderStatusSnapshot {
-  orders: OrderStatus[];
+  @Type(() => OrderStatus)
+  orders: Map<String,OrderStatus>;
 
-  constructor(orders: OrderStatus[]) {
+  constructor(orders: Map<String,OrderStatus>) {
     this.orders = orders;
+  }
+
+  inUpdateOrder(): OrderStatus[] {
+    let orders = Array.from(Object.values(this.orders));
+    orders.sort((a, b) => {
+      return a.updated.getTime() - b.updated.getTime();
+    });
+    return orders;
   }
 }

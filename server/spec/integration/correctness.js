@@ -94,18 +94,26 @@ describe("example", () => {
 
             // reconnect and validate
             trackOrders(socketA).then(details => {
-              expect(details.snapshot.orders.length).toEqual(2);
-              expect(details.snapshot.orders[0]).toEqual(
+              let ordersByTime = Array.from(
+                Object.values(details.snapshot.orders)
+              );
+              ordersByTime.sort((a, b) => {
+                return (
+                  new Date(a.updated).getTime() - new Date(b.updated).getTime()
+                );
+              });
+              expect(ordersByTime.length).toEqual(2);
+              expect(ordersByTime[0]).toEqual(
                 partially({
-                  side: { side: 0 },
+                  side: 0,
                   price: 127.2,
                   reqQty: 75,
                   live: true
                 })
               );
-              expect(details.snapshot.orders[1]).toEqual(
+              expect(ordersByTime[1]).toEqual(
                 partially({
-                  side: { side: 1 },
+                  side: 1,
                   price: 128.2,
                   reqQty: 75,
                   live: true
