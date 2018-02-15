@@ -117,6 +117,7 @@ class Matcher {
   // private - used by submit
   orderFinished(order) {
     order.live = false;
+    order.status = "Filled";
     if (this.removeDeadOrders) {
       delete this.orders[order.trader][order.orderId];
     }

@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
-    "@types/ramda": "github:types/npm-ramda#dist",
+    "@angular-redux/store": "^7.1.0",
     "bitcoin-common": "^0.0.1",
     "bootstrap": "^4.0.0",
     "class-transformer": "^0.1.9",
@@ -30,7 +30,8 @@
     "ramda": "^0.25.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "@angular/cli": "1.6.8",
