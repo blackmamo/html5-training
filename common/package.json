@@ -1,0 +1,18 @@
+{
+  "name": "bitcoin-common",
+  "version": "0.0.1",
+  "description": "Common types",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc --declaration"
+  },
+  "author": "Matthew Amos",
+  "license": "MIT",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "reflect-metadata": "^0.1.12",
+    "class-transformer": "^0.1.9"
+  }
+}

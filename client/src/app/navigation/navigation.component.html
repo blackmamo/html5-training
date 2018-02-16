@@ -1,0 +1,14 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Bitcoin Exchange</a>
+  <form class="form-inline">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="traderId" id="trader-label">Trader</label>
+      </div>
+      <select class="form-control" id="traderId" required aria-label="Trader" aria-describedby="trader-label" (change)="setTrader($event.target)">
+        <option value="" disabled>Choose a trader...</option>
+        <option *ngFor="let trader of traders" [value]="trader" >{{trader}}</option>
+      </select>
+    </div>
+  </form>
+</nav>

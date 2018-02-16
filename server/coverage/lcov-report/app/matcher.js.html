@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\matcher.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> matcher.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.27% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>97/104</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>26/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.27% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>97/104</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const common = require("bitcoin-common");
+const Sides = common.Side;
+const OrderStatus = common.OrderStatus,
+  Fill = common.Fill,
+  OrderStatusSnapshot = common.OrderStatusSnapshot;
+const DepthSnapshot = common.DepthSnapshot,
+  DepthChanged = common.DepthChanged,
+  DepthRemoved = common.DepthRemoved;
+&nbsp;
+// Separation of concerns means that the matcher has a single update handler to send out events
+// Ensuring that the correct messages
+// I was sorely tempted to pull out the order book as a separate object with add and remove methods
+// the matcher would do the matching, but there match logic is so simple, and tied so closely to the
+// order book that I won't. If I was adding more complex order types, I may well separate them
+// The idGeneration is a policy thing we don't want to bake into the matcher implementation,
+// hence it is injected
+class Matcher {
+  constructor(updateHandler, idGenerator, removeDeadOrders, canClearBook) {
+    this.idGenerator = idGenerator;
+    this.updateHandler = updateHandler;
+    this.removeDeadOrders = removeDeadOrders;
+    this.canClearBook = canClearBook;
+&nbsp;
+    // Would ideally like to use a sorted map, could use the ones in collections.js
+    // but keeping it simple for now
+    this.bids = [];
+    this.offers = [];
+    // keyed by trader and orderid, this could get huge since we never remove an order even
+    // when it is filled, the ui wants to request it, this screams to be moved out from the matcher
+    // and into a separate client order service which can be backed by a backend store, later...
+    this.orders = {};
+    // These are basically strategies for implementing the two order types
+    let sideStrategies = {};
+    sideStrategies[Sides.Bid] = {
+      toMatch: this.offers,
+      toJoin: this.bids,
+      opposite: Sides.Offer,
+      matchingPrice: (orderPrice, otherOrderPrice) =&gt; {
+        return orderPrice &gt;= otherOrderPrice;
+      }
+    };
+    sideStrategies[Sides.Offer] = {
+      toMatch: this.bids,
+      toJoin: this.offers,
+      opposite: Sides.Bid,
+      matchingPrice: (orderPrice, otherOrderPrice) =&gt; {
+        return orderPrice &lt;= otherOrderPrice;
+      }
+    };
+    this.side = order =&gt; {
+      return sideStrategies[order.side];
+    };
+  }
+&nbsp;
+  // private - used by submit
+  sendStatusUpdate(status) {
+    // need to copy since we mutate these things internally
+    // flat object so no need for deep copy - currently
+    let copy = new OrderStatus(
+      status.orderId,
+      status.trader,
+      status.side,
+      status.price,
+      status.reqQty,
+      status.remainingQty,
+      status.live,
+      status.status
+    );
+    this.storeOrder(status);
+    this.updateHandler(copy);
+  }
+&nbsp;
+  // private - used by submit
+  ackOrder(order) {
+    let status = new OrderStatus(
+      this.idGenerator.getOrderId(order.trader),
+      order.trader,
+      order.side,
+      order.price,
+      order.qty,
+      order.qty,
+      true,
+      "Order acknowledged"
+    );
+    this.sendStatusUpdate(status);
+    return status;
+  }
+&nbsp;
+  // private - used by submit
+  sendFill(submittedOrder, otherOrder, qty) {
+    let giver, giverOrderId, taker, takerOrderId;
+    if (submittedOrder.side === Sides.Bid) {
+      giver = otherOrder.trader;
+      giverOrderId = otherOrder.orderId;
+      taker = submittedOrder.trader;
+      takerOrderId = submittedOrder.orderId;
+    } else {
+      giver = submittedOrder.trader;
+      giverOrderId = submittedOrder.orderId;
+      taker = otherOrder.trader;
+      takerOrderId = otherOrder.orderId;
+    }
+    this.updateHandler(
+      new Fill(
+        this.idGenerator.getTradeId(),
+        giver,
+        giverOrderId,
+        taker,
+        takerOrderId,
+        // always fill at the price that was in the book before our order was submitted
+        otherOrder.price,
+        qty
+      )
+    );
+  }
+&nbsp;
+  // private - used by submit
+  orderFinished(order) {
+    order.live = false;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.removeDeadOrders) {
+<span class="cstat-no" title="statement not covered" >      delete this.orders[order.trader][order.orderId];</span>
+    }
+  }
+&nbsp;
+  // private - used by submit
+  match(order, side) {
+    // always consume depth from the best price, and oldest order, so index is always 0, hence not
+    // a for loop
+    let level = side.toMatch[0];
+    let priceMatches = level &amp;&amp; side.matchingPrice(order.price, level.price);
+    while (priceMatches) {
+      let otherOrder = level.orders[0];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (otherOrder) {
+        let exactMatch = false; // updated if we do an exact match
+        let matchingQty = Math.min(order.remainingQty, otherOrder.remainingQty);
+&nbsp;
+        // reduce the qty of both orders and the level
+        otherOrder.remainingQty -= matchingQty;
+        level.qty -= matchingQty;
+        order.remainingQty -= matchingQty;
+&nbsp;
+        this.sendFill(order, otherOrder, matchingQty);
+&nbsp;
+        // consume order and possibly the level
+        if (otherOrder.remainingQty === 0) {
+          this.orderFinished(otherOrder);
+          level.orders.splice(0, 1);
+&nbsp;
+          if (level.qty === 0) {
+            exactMatch = true;
+            this.depthRemoved(side.opposite, level);
+            side.toMatch.splice(0, 1);
+            level = side.toMatch[0];
+&nbsp;
+            // when we hit the next level, do we still have a matching price
+            priceMatches =
+              level &amp;&amp; side.matchingPrice(order.price, level.price);
+          }
+        }
+&nbsp;
+        // update matched order, copying since we update these
+        this.sendStatusUpdate(otherOrder);
+&nbsp;
+        // if filled leave the loop and mark the order finished
+        if (order.remainingQty === 0) {
+          this.orderFinished(order);
+&nbsp;
+          // If we partially consumed a level, we need to update the depth
+          if (!exactMatch) {
+            this.depthChanged(side.opposite, level);
+          }
+          break;
+        }
+      }
+    }
+&nbsp;
+    // only send an update for the submitted order if it matched, i.e. changed
+    if (order.remainingQty !== order.reqQty) {
+      // copy to make safe externally
+      this.sendStatusUpdate(order);
+    }
+    return order;
+  }
+&nbsp;
+  // private - used by submit
+  depthChanged(side, level) {
+    this.updateHandler(new DepthChanged(side, level.price, level.qty));
+  }
+&nbsp;
+  // private - used by submit
+  depthRemoved(side, level) {
+    this.updateHandler(new DepthRemoved(side, level.price));
+  }
+&nbsp;
+  // private - used by submit
+  addToBook(order, side) {
+    let insertOrUpdateIndex = side.toJoin.findIndex(function(level) {
+      return side.matchingPrice(order.price, level.price);
+    });
+&nbsp;
+    // this will only happen if the order has a worse price than all other orders in the book
+    // or there are no orders in the book
+    if (insertOrUpdateIndex === -1) {
+      let level = {
+        price: order.price,
+        qty: order.remainingQty,
+        orders: [order]
+      };
+      side.toJoin.push(level);
+      this.depthChanged(order.side, level);
+    } else {
+      let existingLevel = side.toJoin[insertOrUpdateIndex];
+      // update case
+      if (existingLevel.price === order.price) {
+        existingLevel.orders.push(order);
+        existingLevel.qty += order.remainingQty;
+        this.depthChanged(order.side, existingLevel);
+        // insert case
+      } else {
+        let level = {
+          price: order.price,
+          qty: order.remainingQty,
+          orders: [order]
+        };
+        side.toJoin.splice(insertOrUpdateIndex, 0, level);
+        this.depthChanged(order.side, level);
+      }
+    }
+  }
+&nbsp;
+  // private - used by submit
+  storeOrder(order) {
+    let traderOrders = this.orders[order.trader];
+    if (!traderOrders) {
+      this.orders[order.trader] = traderOrders = {};
+    }
+    traderOrders[order.orderId] = order;
+  }
+&nbsp;
+  // assumes that is is only ever passed valid orders, see the OrderRequestValidator
+  submit(order) {
+    let ackedOrder = this.ackOrder(order);
+    let side = this.side(order);
+    let matchedOrder = this.match(ackedOrder, side);
+    if (matchedOrder.remainingQty &gt; 0) {
+      this.addToBook(matchedOrder, side);
+    }
+  }
+&nbsp;
+  clear<span class="fstat-no" title="function not covered" >() {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.canClearBook) {</span>
+<span class="cstat-no" title="statement not covered" >      let traders = Object.keys(this.orders);</span>
+<span class="cstat-no" title="statement not covered" >      for (let i = 0; i &lt; traders.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        delete this.orders[traders[i]];</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.bids.length = 0;</span>
+<span class="cstat-no" title="statement not covered" >      this.offers.length = 0;</span>
+    }
+  }
+&nbsp;
+  static aggregateDepth(side) {
+    return side.map(level =&gt; {
+      return { price: level.price, qty: level.qty };
+    });
+  }
+&nbsp;
+  depthSnapshot() {
+    return new DepthSnapshot(
+      Matcher.aggregateDepth(this.bids),
+      Matcher.aggregateDepth(this.offers)
+    );
+  }
+&nbsp;
+  orderStatusSnapshot(trader) {
+    let traderOrders = this.orders[trader];
+    return new OrderStatusSnapshot(Object.assign({}, traderOrders));
+  }
+}
+&nbsp;
+module.exports = Matcher;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 13 2018 14:50:16 GMT+0000 (GMT Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

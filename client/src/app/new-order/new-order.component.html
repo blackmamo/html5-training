@@ -1,0 +1,36 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="side">Side</label>
+    <select class="form-control" id="side"
+            required validSide
+            [ngModel]="side$ | async"
+            (ngModelChange)="setSide($event)"
+            name="side">
+      <option *ngFor="let side of sides" [value]="side">{{side}}</option>
+    </select>
+
+    <label for="price">Price</label>
+    <input type="number" class="form-control" id="price" step="0.01"
+           required
+           [ngModel]="price$ | async | number:'1.2-2'"
+           (ngModelChange)="setPrice($event)"
+           name="price">
+
+    <label for="qty">Quantity</label>
+    <input type="number" class="form-control" id="qty" min="1" step="1" minValid="1"
+           required
+           [ngModel]="qty$ | async | number:'1.0-0'"
+           (ngModelChange)="setQty($event)"
+           name="qty"
+           #qty="ngModel">
+
+    <div *ngIf="qty.invalid && (qty.dirty || qty.touched)"
+         class="alert alert-danger" >
+      <div *ngIf="qty.errors.minValid">
+        Qty should be a positive integer {{qty.value}}
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </div>
+</form>

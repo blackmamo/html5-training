@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\server.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> server.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >const uuid = require("uuid/v1");</span>
+<span class="cstat-no" title="statement not covered" >const Matcher = require("../app/matcher");</span>
+<span class="cstat-no" title="statement not covered" >const SocketController = require("../app/controller");</span>
+<span class="cstat-no" title="statement not covered" >const winston = require("winston");</span>
+<span class="cstat-no" title="statement not covered" >const WinstonElastic = require("winston-elasticsearch");</span>
+<span class="cstat-no" title="statement not covered" >const elasticsearch = require("elasticsearch");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >const elasticClient = new elasticsearch.Client({</span>
+  host: process.env.ELKSERVER_PORT_9200_TCP_ADDR + ":9200",
+  log: "info"
+});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >winston.configure({</span>
+  level: "info",
+  transports: [
+    new winston.transports.File({
+      name: "loggerA",
+      filename: "/usr/src/app/app/error.log",
+      level: "error"
+    }),
+    new winston.transports.File({
+      name: "loggerB",
+      filename: "/usr/src/app/app/combined.log"
+    }),
+    new WinstonElastic({ level: "info", client: elasticClient })
+  ]
+});
+&nbsp;
+// No need to return any html yet
+<span class="fstat-no" title="function not covered" >function handler(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >  res.writeHead(500);</span>
+<span class="cstat-no" title="statement not covered" >  return res.end("Error loading index.html");</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >const server = require("http").createServer(handler);</span>
+<span class="cstat-no" title="statement not covered" >server.listen(8080);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >let socketController;</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >function updateHandler(event) {</span>
+<span class="cstat-no" title="statement not covered" >  socketController.sendUpdate(event);</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >const matcher = new Matcher(</span>
+  updateHandler,
+  {
+    getTradeId: () =&gt; {
+<span class="cstat-no" title="statement not covered" >      return uuid();</span>
+    },
+    getOrderId: (trader) =&gt; {
+<span class="cstat-no" title="statement not covered" >      return uuid();</span>
+    }
+  },
+  process.argv.findIndex(arg =&gt; {
+<span class="cstat-no" title="statement not covered" >    arg === "--remove-dead-orders";</span>
+  }) === -1,
+  process.argv.findIndex(arg =&gt; {
+<span class="cstat-no" title="statement not covered" >    arg === "--can-clear-book";</span>
+  }) === -1
+);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketController = new SocketController(server, matcher);</span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 09 2018 10:08:00 GMT+0000 (GMT Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\controller.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> controller.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.82% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/71</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >const socketIo = require("socket.io");</span>
+<span class="cstat-no" title="statement not covered" >const validate = require("../app/validator");</span>
+<span class="cstat-no" title="statement not covered" >const common = require("bitcoin-common");</span>
+<span class="cstat-no" title="statement not covered" >const Side = common.Side;</span>
+<span class="cstat-no" title="statement not covered" >const DepthChanged = common.DepthChanged,</span>
+  DepthRemoved = common.DepthRemoved;
+<span class="cstat-no" title="statement not covered" >const OrderRequest = common.OrderRequest,</span>
+  OrderStatus = common.OrderStatus,
+  Fill = common.Fill;
+<span class="cstat-no" title="statement not covered" >const logger = require("winston");</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >function logMeta(socket, trader, event) {</span>
+<span class="cstat-no" title="statement not covered" >  let meta = { id: socket.id };</span>
+<span class="cstat-no" title="statement not covered" >  if (trader) {</span>
+<span class="cstat-no" title="statement not covered" >    meta["trader"] = trader;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (event) {</span>
+<span class="cstat-no" title="statement not covered" >    event["_constructor"] = event.constructor.name;</span>
+<span class="cstat-no" title="statement not covered" >    meta["event"] = event;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return meta;</span>
+}
+&nbsp;
+class SocketController {
+  constructor<span class="fstat-no" title="function not covered" >(server, matcher) {</span>
+<span class="cstat-no" title="statement not covered" >    let io = socketIo(server);</span>
+<span class="cstat-no" title="statement not covered" >    this.io = io;</span>
+<span class="cstat-no" title="statement not covered" >    logger.info("Created socket controller", {</span>
+      serverPort: server.address().port
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    io.on("connection", socket =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      let trader;</span>
+<span class="cstat-no" title="statement not covered" >      socket.join("publicData");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      logger.debug("New connection", logMeta(socket));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      socket.on("setTraderId", data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        trader = data.traderId;</span>
+<span class="cstat-no" title="statement not covered" >        socket.join(trader);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        logger.info("Trader logon", logMeta(socket, trader));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        let initalDepth = matcher.depthSnapshot();</span>
+<span class="cstat-no" title="statement not covered" >        let initalOrders = matcher.orderStatusSnapshot(trader);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        logger.info("Initial depth", logMeta(socket, trader, initalDepth));</span>
+<span class="cstat-no" title="statement not covered" >        socket.emit("DepthSnapshot", initalDepth);</span>
+<span class="cstat-no" title="statement not covered" >        logger.info("Initial orders", logMeta(socket, trader, initalOrders));</span>
+<span class="cstat-no" title="statement not covered" >        socket.emit("OrderSnapshot", initalOrders);</span>
+      });
+&nbsp;
+<span class="fstat-no" title="function not covered" >      function processNewOrder(data) {</span>
+<span class="cstat-no" title="statement not covered" >        let request = new OrderReque</span>st(trader, data.side, data.price, data.qty);
+<span class="cstat-no" title="statement not covered" >        let validationIssues = validate(request);</span>
+<span class="cstat-no" title="statement not covered" >        if (validationIssues.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >          let rejection = new OrderStatus(</span>
+<span class="cstat-no" title="statement not covered" >            null,</span>
+            request.trader,
+            request.side,
+            request.price,
+            request.qty,
+            request.qty,
+            false,
+            "Validation failed: " + validationIssues.join("; ")
+          );
+          logger.warn("Order rejected", logMeta(socket, trader, rejection));
+<span class="cstat-no" title="statement not covered" >          socket.emit("OrderStatus", rejection);</span>
+        } <span class="cstat-no" title="statement not covered" >else {</span>
+          logger.info("Submitting order", logMeta(socket, trader, request));
+<span class="cstat-no" title="statement not covered" >          matcher.submit(request);</span>
+        }<span class="cstat-no" title="statement not covered" ></span>
+      }
+&nbsp;
+      socket.on("newOrder", data =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (Array.isArray(data)) {</span>
+<span class="cstat-no" title="statement not covered" >          for (let i = 0; i &lt; data.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            processNewOrder(data[i]);</span>
+          }<span class="cstat-no" title="statement not covered" ></span>
+        } else {
+          processNewOrder(data);
+        }<span class="cstat-no" title="statement not covered" ></span>
+      });
+&nbsp;
+      socket.on("clearBook", () =&gt; {
+<span class="cstat-no" title="statement not covered" >        logger.info("Attempting to clear order book", logMeta(socket, trader));</span>
+<span class="cstat-no" title="statement not covered" >        matcher.clear();</span>
+      })<span class="cstat-no" title="statement not covered" >;</span>
+&nbsp;
+      // useful in finding the end of tests and for the client to check that the server is alive
+      socket.on("sing", data =&gt; {
+<span class="cstat-no" title="statement not covered" >        logger.info("Responding to ping", logMeta(socket, trader, data));</span>
+<span class="cstat-no" title="statement not covered" >        socket.emit("song", data);</span>
+      })<span class="cstat-no" title="statement not covered" >;</span>
+&nbsp;
+      socket.on("disconnect", () =&gt; {
+<span class="cstat-no" title="statement not covered" >        logger.info("Trader disconnecting", logMeta(socket, trader));</span>
+<span class="cstat-no" title="statement not covered" >        socket.leave("publicData");</span>
+<span class="cstat-no" title="statement not covered" >        socket.leave(trader);</span>
+      })<span class="cstat-no" title="statement not covered" >;</span>
+    });
+  }
+&nbsp;
+  sendUpdate(event) {
+    if (even<span class="fstat-no" title="function not covered" >t instanc</span>eof DepthChanged) {
+<span class="cstat-no" title="statement not covered" >      logger.info("Depth update", { event });</span>
+<span class="cstat-no" title="statement not covered" >      this.io.to("publicData").emit("DepthChan</span>ged", event);
+    } <span class="cstat-no" title="statement not covered" >else if (event instanceof DepthRemoved) {</span>
+      logge<span class="cstat-no" title="statement not covered" >r.info("Depth removed", { event });</span>
+<span class="cstat-no" title="statement not covered" >      this.io.to("publicData").emit("DepthRemov</span>ed", event);
+    } <span class="cstat-no" title="statement not covered" >else if (event instanceof OrderStatus) {</span>
+      logge<span class="cstat-no" title="statement not covered" >r.info("Order update", { event });</span>
+<span class="cstat-no" title="statement not covered" >      this.io.to(event.trader).emit("OrderStat</span>us", event);
+    } <span class="cstat-no" title="statement not covered" >else if (event instanceof Fill) {</span>
+      logge<span class="cstat-no" title="statement not covered" >r.info("Fill", { event });</span>
+<span class="cstat-no" title="statement not covered" >      this.io.to(event.giver).emit("Fi</span>ll", event);
+<span class="cstat-no" title="statement not covered" >      this.io.to(event.taker).emit("Fill", event);</span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+  }
+}
+&nbsp;
+module.exports = SocketController;
+<span class="cstat-no" title="statement not covered" ></span></pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 13 2018 14:50:16 GMT+0000 (GMT Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

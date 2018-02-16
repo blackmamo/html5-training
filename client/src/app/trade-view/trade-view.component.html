@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let trade of values((trades$ | async))" >Fill - {{trade | json}}</li>
+</ul>
