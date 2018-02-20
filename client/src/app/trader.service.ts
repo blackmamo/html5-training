@@ -18,15 +18,6 @@ export class TraderService {
     this.socket = io('http://localhost:8080', {reconnect: true});
   }
 
-  static reducer(state = null, action){
-    switch(action.type){
-      case TradeActions.SET_TRADER:
-        return {trader: action.trader};
-      default:
-        return state;
-    }
-  }
-
   submitOrder(newOrder: OrderRequest){
     this.socket.emit('newOrder', newOrder);
   }
@@ -65,5 +56,9 @@ export class TraderService {
     this.socket.on('Fill', (fill: Object) => {
       this.ngRedux.dispatch({type: OrderActions.FILL, fill: fill});
     });
+  }
+
+  getTrader():string {
+    return this.ngRedux.getState()['trader'].trader
   }
 }

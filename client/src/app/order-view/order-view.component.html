@@ -1,3 +1,34 @@
-<ul>
-  <li *ngFor="let order of values((orders$ | async))" >Order - {{order | json}}</li>
-</ul>
+<table class="table table-dark table-striped table-sm">
+  <thead>
+  <tr>
+    <th scope="col" colspan="5" class="w-100">
+      <div class="float-left">Orders</div>
+      <div class="float-right"><small>Filter </small><input type="checkbox"
+        (change)="this.router.navigate([], {
+                    queryParams: {'filter':$event.target.checked},
+                    relativeTo: this.route
+                  });"
+        [checked]="filter$ | async"></div>
+    </th>
+
+  </tr>
+  <tr>
+    <th scope="col" class="font-weight-light text-center"><small>Price</small></th>
+    <th scope="col" class="font-weight-light text-center"><small>Qty</small></th>
+    <th scope="col" class="font-weight-light text-center"><small>Remaining</small></th>
+    <th scope="col" class="font-weight-light text-center"><small>Status</small></th>
+    <th scope="col" class="font-weight-light text-center"><small>Updated</small></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of objectValues(orders$ | async)" [ngClass]="order.live ? 'text-white' : 'text-muted'">
+    <ng-template [ngIf]="order.live || !(filter$ | async)">
+      <td>{{order.price | number: '3.2-2'}}</td>
+      <td>{{order.reqQty | number: '1.0-0'}}</td>
+      <td>{{order.remainingQty | number: '1.0-0'}}</td>
+      <td>{{order.status}}</td>
+      <td>{{order.updated | date: 'dd/mm/yy hh:mm:ss'}}</td>
+    </ng-template>
+  </tr>
+  </tbody>
+</table>

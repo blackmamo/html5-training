@@ -7,7 +7,7 @@
       </div>
       <select class="form-control" id="traderId" required aria-label="Trader" aria-describedby="trader-label" (change)="setTrader($event.target)">
         <option value="" disabled>Choose a trader...</option>
-        <option *ngFor="let trader of traders" [value]="trader" >{{trader}}</option>
+        <option *ngFor="let trader of traders" [selected]="(trader$ | async) === trader" [value]="trader" >{{trader}}</option>
       </select>
     </div>
   </form>

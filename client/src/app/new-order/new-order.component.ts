@@ -3,7 +3,8 @@ import { Side, OrderRequest} from 'bitcoin-common';
 import {TraderService} from '../trader.service';
 import {NgRedux, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
-import {NewOrderActions} from '../new-order.service';
+import {NewOrderActions, NewOrderService} from '../new-order.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-new-order',
@@ -18,7 +19,10 @@ export class NewOrderComponent implements OnInit {
   @select(['newOrder', 'price']) price$: Observable<Object>;
   @select(['newOrder', 'qty']) qty$: Observable<Object>;
 
-  constructor(private ngRedux: NgRedux<Object>, private traderService: TraderService) {}
+  constructor(
+    private traderService: TraderService,
+    private newOrderService: NewOrderService,
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
   }
@@ -28,19 +32,19 @@ export class NewOrderComponent implements OnInit {
 
     switch(event.key) {
       case "Space":
-        this.setSide((this.ngRedux.getState()['newOrder'].side === Side[Side.Bid]) ? Side[Side.Offer]: Side[Side.Bid]);
+        this.newOrderService.setSide((this.newOrderService.getSide() === Side[Side.Bid]) ? Side[Side.Offer]: Side[Side.Bid]);
         break;
       case "ArrowUp":
-        this.setPrice(this.ngRedux.getState()['newOrder'].price + (0.01 * mult));
+        this.newOrderService.setPrice(this.newOrderService.getPrice() + (0.01 * mult));
         break;
       case "ArrowDown":
-        this.setPrice(this.ngRedux.getState()['newOrder'].price - (0.01 * mult));
+        this.newOrderService.setPrice(this.newOrderService.getPrice()  - (0.01 * mult));
         break;
       case "ArrowLeft":
-        this.setQty(this.ngRedux.getState()['newOrder'].qty + (1 * mult));
+        this.newOrderService.setQty(this.newOrderService.getQty()  + (1 * mult));
         break;
       case "ArrowRight":
-        this.setQty(this.ngRedux.getState()['newOrder'].qty - (1 * mult));
+        this.newOrderService.setQty(this.newOrderService.getQty() - (1 * mult));
         break;
       case "Enter":
         this.onSubmit();
@@ -50,29 +54,24 @@ export class NewOrderComponent implements OnInit {
     }
   }
 
+
   setQty(qty: number){
-    this.ngRedux.dispatch({
-      type: NewOrderActions.QTY,
-      qty: qty});
+    this.newOrderService.setQty(qty);
   }
 
   setPrice(price: number){
-    this.ngRedux.dispatch({
-      type: NewOrderActions.PRICE,
-      price: price});
+    this.newOrderService.setPrice(price);
   }
 
   setSide(side: string){
-    this.ngRedux.dispatch({
-      type: NewOrderActions.SIDE,
-      side: side});
+    this.newOrderService.setSide(side);
   }
 
   onSubmit(){
-    let trader = this.ngRedux.getState()['trader'];
-    let newOrder = this.ngRedux.getState()['newOrder'];
+    let trader = this.route.snapshot.paramMap.get('trader');
+    let newOrder = this.newOrderService.getState();
     this.traderService.submitOrder(new OrderRequest(
-      trader.trader,
+      trader,
       Side[newOrder.side as string],
       newOrder.price,
       newOrder.qty));

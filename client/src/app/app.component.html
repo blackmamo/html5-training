@@ -1,16 +1,17 @@
 <app-navigation></app-navigation>
-<div *ngIf="trader$ | async" class="container-fluid">
-  <div class="row">
-    <app-depth-view></app-depth-view>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <app-order-view></app-order-view>
-      <app-trade-view></app-trade-view>
+<div *ngIf="trader$ | async" class="container-fluid bg-dark">
+  <div class="row text-white">
+    <div class="col-3">
+      <app-depth-view></app-depth-view>
     </div>
-    <div class="col-4">
+    <div class="col">
+      <app-order-view></app-order-view>
+    </div>
+    <div class="col-2">
       <app-new-order></app-new-order>
     </div>
   </div>
+  <app-trade-view></app-trade-view>
 </div>
+
 

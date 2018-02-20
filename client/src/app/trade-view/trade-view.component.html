@@ -1,3 +1,15 @@
-<ul>
-  <li *ngFor="let trade of values((trades$ | async))" >Fill - {{trade | json}}</li>
-</ul>
+<table class="table table-dark table-striped table-sm">
+  <thead>
+  <tr>
+    <th scope="col" colspan="-1" class="text-center">Trades</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let trade of objectValues(trades$ | async)">
+    <ng-template [ngIf]=" ">
+
+    </ng-template>
+    <td *ngFor="let col of objectKeys(trade)">{{trade[col]}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
@@ -17,7 +16,8 @@ import { TradeViewComponent } from './trade-view/trade-view.component';
 import { DashPipe } from './dash.pipe';
 import {MinValidDirective, SideValidatorDirective} from './side-validator.directive';
 import {NewOrderService} from './new-order.service';
-
+import {RouterModule} from '@angular/router';
+import { RouteComponent } from './route/route.component';
 
 @NgModule({
   declarations: [
@@ -29,16 +29,21 @@ import {NewOrderService} from './new-order.service';
     TradeViewComponent,
     DashPipe,
     SideValidatorDirective,
-    MinValidDirective
+    MinValidDirective,
+    RouteComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
-    NgReduxModule
+    NgReduxModule,
+    RouterModule.forRoot(
+      [{path: '', component: AppComponent},{path: ':trader', component: AppComponent}],
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
-  providers: [TraderService, DepthService, OrderBookService],
-  bootstrap: [AppComponent]
+  providers: [TraderService, DepthService, OrderBookService, NewOrderService],
+  bootstrap: [RouteComponent]
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<Object>) {
@@ -46,7 +51,6 @@ export class AppModule {
       combineReducers({
       depth: DepthService.reducer,
       orderBook: OrderBookService.reducer,
-      trader: TraderService.reducer,
       newOrder: NewOrderService.reducer
     }),{});
   }

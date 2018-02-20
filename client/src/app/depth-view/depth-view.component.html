@@ -13,10 +13,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let level of (depth$ | async)">
-      <td class="text-left">{{level[0]?.qty | number: '1.0-0' | dash}}</td>
-      <td class="text-right">{{level[0]?.price | number: '3.2-2' | dash}}</td>
-      <td class="text-left">{{level[1]?.price | number: '3.2-2' | dash}}</td>
-      <td class="text-right">{{level[1]?.qty | number: '1.0-0' | dash}}</td>
+      <td class="text-left link" (click)="setPriceSideAndQty('Offer', level[0])">{{level[0]?.qty | number: '1.0-0' | dash}}</td>
+      <td class="text-right link" (click)="setPriceAndSide('Offer', level[0].price)">{{level[0]?.price | number: '3.2-2' | dash}}</td>
+      <td class="text-left link" (click)="setPriceAndSide('Bid', level[1].price)">{{level[1]?.price | number: '3.2-2' | dash}}</td>
+      <td class="text-right link" (click)="setPriceSideAndQty('Bid', level[1])">{{level[1]?.qty | number: '1.0-0' | dash}}</td>
     </tr>
   </tbody>
 </table>

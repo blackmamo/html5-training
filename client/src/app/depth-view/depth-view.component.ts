@@ -5,6 +5,7 @@ import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/map";
 import {Level} from 'bitcoin-common';
 import * as R from 'ramda';
+import {NewOrderService} from '../new-order.service';
 
 @Component({
   selector: 'app-depth-view',
@@ -13,7 +14,8 @@ import * as R from 'ramda';
 })
 export class DepthViewComponent implements OnInit {
 
-  constructor(private ngRedux: NgRedux<Object>) {}
+  constructor(private ngRedux: NgRedux<Object>,
+              private newOrderService: NewOrderService) {}
 
   ngOnInit() {
   }
@@ -30,4 +32,15 @@ export class DepthViewComponent implements OnInit {
     }
     return R.zip(bids, offers);
   });
+
+  setPriceSideAndQty(side, level){
+    this.newOrderService.setSide(side);
+    this.newOrderService.setPrice(level.price);
+    this.newOrderService.setQty(level.qty);
+  }
+
+  setPriceAndSide(side, price){
+    this.newOrderService.setSide(side);
+    this.newOrderService.setPrice(price);
+  }
 }
