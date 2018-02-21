@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {NgRedux, select} from '@angular-redux/store';
-import {OrderStatus} from 'bitcoin-common';
+import {OrderStatus, Fill} from 'bitcoin-common';
 import {TraderService} from '../trader.service';
+import * as R from "ramda";
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-trade-view',
@@ -11,13 +13,22 @@ import {TraderService} from '../trader.service';
 })
 export class TradeViewComponent implements OnInit {
 
-  constructor(private ngRedux: NgRedux<Object>, private traderService: TraderService) {}
+  constructor(private ngRedux: NgRedux<Object>,
+              private traderService: TraderService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
   }
 
-  @select(['orderBook', 'trades']) trades$: Observable<Array<OrderStatus>>;
-  @select(['trader','trader']) trader$: Observable<String>;
+  @select(['orderBook', 'trades']) trades$raw: Observable<Array<OrderStatus>>;
+  trader$ = this.route.paramMap.map((map: ParamMap) => {
+    return map.get('trader');
+  });
 
+  trades$ = this.trades$raw.map((trades)=>{
+    return R.uniqBy((t: Fill) => {
+      return t.tradeId;
+    })(trades);
+  });
   objectValues = Object.values;
 }

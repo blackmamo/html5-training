@@ -3,13 +3,23 @@
   <tr>
     <th scope="col" colspan="-1" class="text-center">Trades</th>
   </tr>
+  <tr>
+    <th>Id</th>
+    <td>Action</td>
+    <td>Counter Party</td>
+    <td>Price</td>
+    <td>Qty</td>
+  </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let trade of objectValues(trades$ | async)">
-    <ng-template [ngIf]=" ">
-
-    </ng-template>
-    <td *ngFor="let col of objectKeys(trade)">{{trade[col]}}</td>
-  </tr>
+    <tr *ngFor="let trade of objectValues(trades$ | async)">
+      <ng-template [ngIf]="trade.taker === (trader$ | async) || trade.giver === (trader$ | async)">
+        <td>{{trade.tradeId}}</td>
+        <td>{{trade.taker === (trader$ | async) ? (trade.giver === (trader$ | async) ? '-': 'Bought'): 'Sold'}}</td>
+        <td>{{trade.taker === (trader$ | async) ? trade.giver: trade.taker}}</td>
+        <td>{{trade.price | number: '1.2-2'}}</td>
+        <td>{{trade.qty | number: '1.0-0'}}</td>
+      </ng-template>
+    </tr>
   </tbody>
 </table>

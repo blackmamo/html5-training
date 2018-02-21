@@ -22,13 +22,11 @@
   </thead>
   <tbody>
   <tr *ngFor="let order of objectValues(orders$ | async)" [ngClass]="order.live ? 'text-white' : 'text-muted'">
-    <ng-template [ngIf]="order.live || !(filter$ | async)">
-      <td>{{order.price | number: '3.2-2'}}</td>
-      <td>{{order.reqQty | number: '1.0-0'}}</td>
-      <td>{{order.remainingQty | number: '1.0-0'}}</td>
-      <td>{{order.status}}</td>
-      <td>{{order.updated | date: 'dd/mm/yy hh:mm:ss'}}</td>
-    </ng-template>
+    <td>{{order.price | number: '3.2-2'}}</td>
+    <td>{{order.reqQty | number: '1.0-0'}}</td>
+    <td>{{order.remainingQty | number: '1.0-0'}}</td>
+    <td>{{order.status}}</td>
+    <td>{{order.updated | date: 'dd/MM/yy hh:mm:ss'}}</td>
   </tr>
   </tbody>
 </table>

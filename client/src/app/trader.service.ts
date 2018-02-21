@@ -4,6 +4,7 @@ import { DepthActions } from './depth.service'
 import {OrderActions} from './order.book.service';
 import {OrderRequest} from 'bitcoin-common';
 import {NgRedux} from '@angular-redux/store';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 export enum TradeActions {
   SET_TRADER = "SetTraderId"

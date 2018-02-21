@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NgRedux, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
+import  'rxjs/add/operator/combineLatest';
 import {OrderStatus} from 'bitcoin-common';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import * as R from "ramda";
 
 @Component({
   selector: 'app-order-view',
@@ -18,14 +20,22 @@ export class OrderViewComponent implements OnInit {
   ngOnInit() {
   }
 
-  @select(['orderBook', 'orders', 'orders']) orders$raw: Observable<Array<OrderStatus>>;
-  orders$ = this.orders$raw.map(items => Object.values(items).sort((a,b) =>{
-    return new Date(a.updated).getTime() - new Date(b.updated).getTime()}));
-
   filter$ = this.route.queryParamMap.map((map: ParamMap) => {
     let f = map.get('filter');
     return f === "true" ? true : false;
   });
 
+  @select(['orderBook', 'orders', 'orders']) private orders$raw: Observable<Array<OrderStatus>>;
+  private orders$sorted = this.orders$raw.map(R.compose(
+    R.sort((a,b) => {
+      return new Date(a.updated).getTime() - new Date(b.updated).getTime();
+    }),
+    Object.values));
+  orders$ = this.orders$sorted.combineLatest(this.filter$,
+    (orders, filter) => {
+      return R.filter(
+        order => { return order.live || !filter;},
+        orders)}
+  );
   objectValues = Object.values;
 }

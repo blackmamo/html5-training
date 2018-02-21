@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {NgRedux, select} from '@angular-redux/store';
-import {Observable} from 'rxjs/Observable';
-import {Side} from 'bitcoin-common';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
